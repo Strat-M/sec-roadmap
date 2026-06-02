@@ -8,5 +8,5 @@ export default defineConfig({
   // If your repo is https://github.com/username/seccert-roadmap
   // then base should be '/seccert-roadmap/'
   // If deploying to username.github.io (root), use '/'
-  base: '/seccert-roadmap/',
+  base: '/sec-roadmap/',
 })

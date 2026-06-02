@@ -522,7 +522,8 @@ const DC={n:"#22c55e",i:"#ec4899",e:"#f97316",a:"#84cc16",g:"#f59e0b",t:"#a855f7
 const DO=["n","e","s","r","b","t","g","i","a"];
 const WN={e:"Engineering",m:"Management/GRC",b:"Defensive (Blue)",r:"Offensive (Red)"};
 const WC={e:"#ea8c2a",m:"#6b7280",b:"#1d4ed8",r:"#dc2626"};
-const TN={5:"Master",4:"Expert",3:"Professional",2:"Associate",1:"Foundational"};
+const TN={5:"Master",4:"Expert",3:"Pro",2:"Assoc",1:"Found"};
+const TF={5:"Master",4:"Expert",3:"Professional",2:"Associate",1:"Foundational"};
 const TC={5:"#a855f7",4:"#ef4444",3:"#f59e0b",2:"#84cc16",1:"#22c55e"};
 const TY={5:"8+ yr",4:"5-8 yr",3:"2-5 yr",2:"0-2 yr",1:"0 yr"};
 
@@ -765,7 +766,7 @@ export default function App() {
           <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
             {myList.map(c => { const sal = salRange(c.a); return (
               <div key={c.a} onClick={() => setSel(c.a)} style={{ background: "#1e293b", borderRadius: 5, padding: "6px 10px", border: "1px solid " + DC[c.d] + "33", minWidth: 130, cursor: "pointer", display: "flex", flexDirection: "column", gap: 2 }}>
-                <div style={{ display: "flex", justifyContent: "space-between" }}><span style={{ fontSize: 13, fontWeight: 800, color: DC[c.d] }}>{c.a}</span><span style={{ fontSize: 9, color: TC[c.t], fontWeight: 700 }}>{TN[c.t]}</span></div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}><span style={{ fontSize: 13, fontWeight: 800, color: DC[c.d] }}>{c.a}</span><span style={{ fontSize: 9, color: TC[c.t], fontWeight: 700 }}>{TF[c.t]}</span></div>
                 <span style={{ fontSize: 10, color: "#cbd5e1" }}>{c.n.slice(0, 45)}</span>
                 {sal && <span style={{ fontSize: 11, color: "#22c55e", fontWeight: 600 }}>${sal[0]}K&ndash;${sal[1]}K</span>}
               </div>); })}
@@ -793,10 +794,10 @@ export default function App() {
             </div>
             <div style={{ height: 4, background: "#0f172a", borderRadius: 3, margin: "6px 0", overflow: "hidden" }}><div style={{ height: "100%", width: pct + "%", background: pctColor(pct), borderRadius: 3 }} /></div>
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 6 }}>
-              {Object.entries(pv.t).sort((a, b) => Number(a[0]) - Number(b[0])).map(([t, r]) => (<span key={t} style={{ fontSize: 11 }}><span style={{ color: TC[t], fontWeight: 700 }}>{TN[t]}</span> <span style={{ color: "#94a3b8" }}>${r[0]}K&ndash;${r[1]}K</span></span>))}
+              {Object.entries(pv.t).sort((a, b) => Number(a[0]) - Number(b[0])).map(([t, r]) => (<span key={t} style={{ fontSize: 11 }}><span style={{ color: TC[t], fontWeight: 700 }}>{TF[t]}</span> <span style={{ color: "#94a3b8" }}>${r[0]}K&ndash;${r[1]}K</span></span>))}
             </div>
             {[1, 2, 3, 4, 5].map(t => { const tc = pv.c.filter(a => { const c = ALL.find(x => x.a === a); return c && c.t === t; }); if (!tc.length) return null; return (
-              <div key={t} style={{ marginTop: 2 }}><span style={{ fontSize: 10, color: TC[t], fontWeight: 700 }}>{TN[t]}: </span>
+              <div key={t} style={{ marginTop: 2 }}><span style={{ fontSize: 10, color: TC[t], fontWeight: 700 }}>{TF[t]}: </span>
                 {tc.map(a => { const have = my.has(a); return <span key={a} onClick={() => tog(a)} style={{ fontSize: 10, padding: "3px 8px", borderRadius: 3, marginRight: 3, marginBottom: 2, display: "inline-block", cursor: "pointer", background: have ? "rgba(251,191,36,0.13)" : "#0f172a", color: have ? "#fbbf24" : "#94a3b8", border: have ? "1px solid #fbbf24" : "1px solid #1e293b", fontWeight: have ? 700 : 400 }}>{have ? "\u2713 " : ""}{a}</span>; })}
               </div>); })}
           </div>); })}
@@ -807,7 +808,7 @@ export default function App() {
         <div>
           <div style={ss.card}><label style={ss.label}>Career Pathway</label><Dd v={sPw} onChange={setSPw} opts={Object.entries(PW).map(([k, v]) => [k, v.l])} /></div>
           <div style={ss.card}><label style={ss.label}>Certification Tier</label>
-            <div style={{ display: "flex", gap: 3 }}>{[1, 2, 3, 4, 5].map(t => (<button key={t} onClick={() => setSTier(t)} style={{ flex: 1, padding: "6px 2px", borderRadius: 4, cursor: "pointer", fontSize: 9, fontWeight: 700, lineHeight: 1.3, border: sTier === t ? "2px solid " + TC[t] : "2px solid #334155", background: sTier === t ? TC[t] + "15" : "#0f172a", color: sTier === t ? TC[t] : "#94a3b8" }}>{TN[t]}<br /><span style={{ fontWeight: 400, fontSize: 8 }}>{TY[t]}</span></button>))}</div>
+            <div style={{ display: "flex", gap: 3 }}>{[1, 2, 3, 4, 5].map(t => (<button key={t} onClick={() => setSTier(t)} style={{ flex: 1, padding: "6px 2px", borderRadius: 4, cursor: "pointer", fontSize: 9, fontWeight: 700, lineHeight: 1.3, border: sTier === t ? "2px solid " + TC[t] : "2px solid #334155", background: sTier === t ? TC[t] + "15" : "#0f172a", color: sTier === t ? TC[t] : "#94a3b8" }}>{TF[t]}<br /><span style={{ fontWeight: 400, fontSize: 8 }}>{TY[t]}</span></button>))}</div>
           </div>
           <div style={ss.card}><label style={ss.label}>DoD Security Clearance</label><Dd v={sCl} onChange={setSCl} opts={CL.map(c => [c.id, c.l + " (" + (c.m > 1 ? "+" : "") + Math.round((c.m - 1) * 100) + "%)"])} /></div>
           <div style={ss.card}><label style={ss.label}>Education</label><Dd v={sDg} onChange={setSDg} opts={DG.map(d => [d.id, d.l + " (" + (d.m >= 1 ? "+" : "") + Math.round((d.m - 1) * 100) + "%)"])} /></div>
@@ -818,11 +819,11 @@ export default function App() {
             <div style={{ fontSize: 10, color: "#94a3b8", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>Estimated Annual Salary</div>
             <div style={{ fontSize: 44, fontWeight: 900, color: "#22c55e", lineHeight: 1.1, marginTop: 4 }}>${calc.mid.toLocaleString()}K</div>
             <div style={{ fontSize: 14, color: "#cbd5e1", marginTop: 2 }}>${calc.lo}K &mdash; ${calc.hi}K</div>
-            <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 4 }}>{PW[sPw].l} &middot; {TN[sTier]}</div>
+            <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 4 }}>{PW[sPw].l} &middot; {TF[sTier]}</div>
             {calc.capped && <div style={{ fontSize: 9, color: "#f59e0b", marginTop: 4, padding: "2px 6px", background: "#f59e0b11", borderRadius: 3 }}>Capped at {MOD_CAP}x (raw: {calc.rawMult.toFixed(2)}x)</div>}
             <div style={{ borderTop: "1px solid #334155", marginTop: 14, paddingTop: 10, textAlign: "left" }}>
               <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", marginBottom: 4 }}>BREAKDOWN</div>
-              {[{label:"Base (" + PW[sPw].l + ", " + TN[sTier] + ")",m:1,val:"$" + calc.bm + "K",color:"#f1f5f9"},
+              {[{label:"Base (" + PW[sPw].l + ", " + TF[sTier] + ")",m:1,val:"$" + calc.bm + "K",color:"#f1f5f9"},
                 {label:"Clearance: " + calc.cl.l,m:calc.cl.m,val:(calc.cl.m>=1?"+":"") + Math.round(calc.bm*(calc.cl.m-1)) + "K",color:calc.cl.c},
                 {label:"Education: " + calc.dg.l,m:calc.dg.m,val:(calc.dg.m>=1?"+":"") + Math.round(calc.bm*(calc.dg.m-1)) + "K",color:calc.dg.m>=1?"#22c55e":"#f87171"},
                 {label:"Experience: " + calc.ex.l,m:calc.ex.m,val:(calc.ex.m>=1?"+":"") + Math.round(calc.bm*(calc.ex.m-1)) + "K",color:calc.ex.m>=1?"#22c55e":"#f87171"},
@@ -872,20 +873,20 @@ export default function App() {
               <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
                 <span style={{ background: DC[c.d], color: "#fff", padding: "4px 12px", borderRadius: 4, fontWeight: 800, fontSize: 15 }}>{c.a}</span>
                 {c.s === "retired" && <span style={{ fontSize: 10, color: "#f87171", background: "#f8717118", padding: "2px 6px", borderRadius: 3 }}>RETIRED</span>}
-                <span style={{ fontSize: 10, color: TC[c.t], fontWeight: 700 }}>{TN[c.t]}</span>
+                <span style={{ fontSize: 10, color: TC[c.t], fontWeight: 700 }}>{TF[c.t]}</span>
               </div>
-              <div style={{ fontSize: 15, fontWeight: 600, color: "#f8fafc", marginTop: 6 }}>{c.n}</div>
-              {c.b && <div style={{ fontSize: 12, color: "#cbd5e1", marginTop: 4, lineHeight: 1.6 }}>{c.b}</div>}
+              <div style={{ fontSize: 17, fontWeight: 600, color: "#f8fafc", marginTop: 6 }}>{c.n}</div>
+              {c.b && <div style={{ fontSize: 13, color: "#cbd5e1", marginTop: 6, lineHeight: 1.6 }}>{c.b}</div>}
             </div>
             <div style={{ display: "flex", gap: 4, flexShrink: 0 }}>
-              <button onClick={() => tog(c.a)} style={{ padding: "6px 14px", borderRadius: 5, border: "none", cursor: "pointer", fontSize: 11, fontWeight: 700, background: owned ? "#fbbf24" : "#334155", color: owned ? "#000" : "#cbd5e1" }}>{owned ? "\u2713 Owned" : "+ Add"}</button>
-              {c.u && <a href={c.u} target="_blank" rel="noopener noreferrer" style={{ padding: "6px 10px", borderRadius: 5, border: "1px solid #334155", fontSize: 10, color: "#60a5fa", textDecoration: "none", display: "flex", alignItems: "center" }}>Official Site &rarr;</a>}
+              <button onClick={() => tog(c.a)} style={{ padding: "8px 16px", borderRadius: 6, border: "none", cursor: "pointer", fontSize: 12, fontWeight: 700, background: owned ? "#fbbf24" : "#334155", color: owned ? "#000" : "#cbd5e1" }}>{owned ? "\u2713 Owned" : "+ Add"}</button>
+              {c.u && <a href={c.u} target="_blank" rel="noopener noreferrer" style={{ padding: "8px 12px", borderRadius: 6, border: "1px solid #334155", fontSize: 11, color: "#60a5fa", textDecoration: "none", display: "flex", alignItems: "center" }}>Official Site &rarr;</a>}
               <button onClick={() => setSel(null)} style={{ padding: "6px 10px", borderRadius: 5, border: "1px solid #475569", background: "none", color: "#94a3b8", cursor: "pointer", fontSize: 11 }}>&#10005;</button>
             </div>
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginTop: 12 }}>
             {c.p && <div><span style={ss.dl}>Price</span><span style={ss.dv}>{c.p}</span></div>}
-            <div><span style={ss.dl}>Domains</span><div style={{ display: "flex", gap: 4, marginTop: 2 }}>{doms.map(d => <span key={d} style={{ fontSize: 10, padding: "2px 6px", borderRadius: 3, background: DC[d] + "22", color: DC[d], fontWeight: 600, border: "1px solid " + DC[d] + "44" }}>{DN[d]}</span>)}</div></div>
+            <div><span style={ss.dl}>Domains</span><div style={{ display: "flex", gap: 4, marginTop: 2 }}>{doms.map(d => <span key={d} style={{ fontSize: 11, padding: "3px 8px", borderRadius: 4, background: DC[d] + "22", color: DC[d], fontWeight: 600, border: "1px solid " + DC[d] + "44" }}>{DN[d]}</span>)}</div></div>
             {sal && <div><span style={ss.dl}>Salary Range</span><span style={{ ...ss.dv, color: "#22c55e", fontWeight: 700 }}>${sal[0]}K&ndash;${sal[1]}K</span></div>}
             {paths.length > 0 && <div><span style={ss.dl}>Career Pathways</span><span style={ss.dv}>{paths.join(", ")}</span></div>}
           </div>
@@ -903,13 +904,13 @@ const ss = {
   sel: { padding: "6px 8px", fontSize: 11, borderRadius: 5, border: "1px solid #334155", background: "#0f172a", color: "#f1f5f9", cursor: "pointer" },
   input: { padding: "6px 10px", fontSize: 11, borderRadius: 5, border: "1px solid #334155", background: "#0f172a", color: "#f1f5f9", width: 150 },
   progBar: { display: "flex", alignItems: "center", background: "#1e293b", borderRadius: 6, padding: "6px 12px", marginBottom: 6, fontSize: 12, border: "1px solid #334155" },
-  tierLbl: { width: 80, minWidth: 80, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", borderRight: "3px solid", paddingRight: 5, marginRight: 0 },
+  tierLbl: { width: 64, minWidth: 64, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", borderRight: "3px solid", paddingRight: 5, marginRight: 0 },
   leg: { display: "flex", alignItems: "center", gap: 4, fontSize: 10, color: "#94a3b8" },
   dot: { width: 11, height: 11, borderRadius: 2, display: "inline-block" },
   card: { background: "#1e293b", borderRadius: 8, padding: 14, border: "1px solid #3b4a5f", marginBottom: 8 },
   label: { fontSize: 10, color: "#94a3b8", fontWeight: 700, marginBottom: 4, display: "block", textTransform: "uppercase", letterSpacing: 0.5 },
-  detail: { position: "fixed", bottom: 0, left: 0, right: 0, background: "#1a2332", borderTop: "3px solid #2563eb", padding: 20, zIndex: 100, maxHeight: "40vh", overflow: "auto" },
+  detail: { position: "fixed", bottom: 0, left: 0, right: 0, background: "#1a2332", borderTop: "3px solid #2563eb", padding: "20px 24px", zIndex: 100, maxHeight: "52vh", overflow: "auto", boxShadow: "0 -8px 30px rgba(0,0,0,0.5)" },
   dl: { fontSize: 10, color: "#94a3b8", display: "block" },
-  dv: { fontSize: 13, color: "#f1f5f9", display: "block", marginTop: 1 },
+  dv: { fontSize: 14, color: "#f1f5f9", display: "block", marginTop: 1 },
   empty: { textAlign: "center", padding: 40, color: "#cbd5e1", fontSize: 13, lineHeight: 1.6 },
 };

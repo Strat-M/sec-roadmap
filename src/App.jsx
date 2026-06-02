@@ -636,14 +636,14 @@ export default function App() {
     return (<div onClick={() => setSel(isSel ? null : c.a)} style={{
       background: c.s==="retired" ? "#1f2937" : (WC[c.w]||"#444"),
       opacity: c.inP===false ? 0.08 : c.s==="retired" ? 0.4 : 1,
-      color:"#fff", padding:"2px 5px", borderRadius:3, cursor:"pointer", fontSize:8, fontWeight:700,
+      color:"#fff", padding:"4px 8px", borderRadius:4, cursor:"pointer", fontSize:11, fontWeight:700,
       display:"inline-flex", alignItems:"center", justifyContent:"center", position:"relative",
       border: owned ? "2px solid #fbbf24" : isSel ? "2px solid #fff" : "1px solid transparent",
       borderStyle: c.s==="retired" ? "dashed" : "solid", transition:"opacity 0.15s",
       lineHeight:1.2, textAlign:"center",
     }}>
       {c.a}
-      {owned && <span style={{position:"absolute",top:-4,right:-4,background:"#fbbf24",color:"#000",borderRadius:8,width:11,height:11,fontSize:6,display:"flex",alignItems:"center",justifyContent:"center",fontWeight:900}}>&#10003;</span>}
+      {owned && <span style={{position:"absolute",top:-4,right:-4,background:"#fbbf24",color:"#000",borderRadius:8,width:14,height:14,fontSize:8,display:"flex",alignItems:"center",justifyContent:"center",fontWeight:900}}>&#10003;</span>}
     </div>);
   };
 
@@ -676,7 +676,7 @@ export default function App() {
           <div style={ss.progBar}>
             <span style={{fontWeight:700,color:"#fbbf24",marginRight:8}}>{PW[fPath].l}</span>
             <div style={{flex:1,height:5,background:"#0f172a",borderRadius:3,overflow:"hidden"}}><div style={{height:"100%",width:pprog.pct+"%",background:pctColor(pprog.pct),borderRadius:3}}/></div>
-            <span style={{fontSize:10,fontWeight:700,color:pctColor(pprog.pct),marginLeft:8}}>{pprog.pct}% ({pprog.owned}/{pprog.total})</span>
+            <span style={{fontSize:12,fontWeight:700,color:pctColor(pprog.pct),marginLeft:8}}>{pprog.pct}% ({pprog.owned}/{pprog.total})</span>
           </div>
         )}
         {/* Grid: columns = domains, rows = tiers (top=master) */}
@@ -685,18 +685,18 @@ export default function App() {
             {/* Column headers */}
             <div/>
             {visibleDomains.map(d => (
-              <div key={d} style={{padding:"4px 2px",textAlign:"center",borderBottom:"2px solid "+DC[d],fontSize:9,fontWeight:800,color:DC[d],letterSpacing:0.3}}>{DN[d]}</div>
+              <div key={d} style={{padding:"4px 2px",textAlign:"center",borderBottom:"2px solid "+DC[d],fontSize:11,fontWeight:800,color:DC[d],letterSpacing:0.3}}>{DN[d]}</div>
             ))}
             {/* Tier rows */}
             {[5,4,3,2,1].map(tier => (<>
               <div key={"tl"+tier} style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",padding:"4px 2px",borderRight:"2px solid "+TC[tier]}}>
-                <span style={{fontSize:9,fontWeight:800,color:TC[tier],writingMode:"vertical-rl",transform:"rotate(180deg)"}}>{TN[tier]}</span>
-                <span style={{fontSize:7,color:"#475569"}}>{TY[tier]}</span>
+                <span style={{fontSize:12,fontWeight:800,color:TC[tier],writingMode:"vertical-rl",transform:"rotate(180deg)"}}>{TN[tier]}</span>
+                <span style={{fontSize:9,color:"#94a3b8"}}>{TY[tier]}</span>
               </div>
               {visibleDomains.map(d => {
                 const certs = filtered.filter(c => c.d === d && c.t === tier);
                 return (
-                  <div key={d+tier} style={{padding:3,borderBottom:"1px solid #111827",borderRight:"1px solid #111827",minHeight:28,display:"flex",flexWrap:"wrap",gap:2,alignContent:"flex-start"}}>
+                  <div key={d+tier} style={{padding:4,borderBottom:"1px solid #1e293b",borderRight:"1px solid #1e293b",minHeight:34,display:"flex",flexWrap:"wrap",gap:2,alignContent:"flex-start"}}>
                     {certs.map(c => <Tile key={c.a} c={c}/>)}
                   </div>
                 );
@@ -716,15 +716,15 @@ export default function App() {
         {my.size === 0 ? (<div style={ss.empty}><div style={{fontSize:15,fontWeight:700,marginBottom:8}}>No certs tracked yet</div><div style={{maxWidth:400,margin:"0 auto",lineHeight:1.6}}>Go to Browse, click any cert tile, then + Add. Or toggle certs in Pathways. Persists across sessions.</div></div>
         ) : (<div>
           <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:12}}>
-            {DO.map(dk => { const cnt = myList.filter(c=>c.d===dk).length; if(!cnt)return null; return <div key={dk} style={{background:"#1e293b",borderRadius:6,padding:"6px 10px",borderLeft:"3px solid "+DC[dk]}}><div style={{fontSize:7,color:DC[dk],fontWeight:700}}>{DN[dk]}</div><div style={{fontSize:18,fontWeight:800,color:"#fff"}}>{cnt}</div></div>; })}
-            <div style={{background:"#1e293b",borderRadius:6,padding:"6px 10px",borderLeft:"3px solid #fbbf24"}}><div style={{fontSize:7,color:"#fbbf24",fontWeight:700}}>TOTAL</div><div style={{fontSize:18,fontWeight:800,color:"#fff"}}>{my.size}</div></div>
+            {DO.map(dk => { const cnt = myList.filter(c=>c.d===dk).length; if(!cnt)return null; return <div key={dk} style={{background:"#1e293b",borderRadius:6,padding:"6px 10px",borderLeft:"3px solid "+DC[dk]}}><div style={{fontSize:9,color:DC[dk],fontWeight:700}}>{DN[dk]}</div><div style={{fontSize:22,fontWeight:800,color:"#fff"}}>{cnt}</div></div>; })}
+            <div style={{background:"#1e293b",borderRadius:6,padding:"6px 10px",borderLeft:"3px solid #fbbf24"}}><div style={{fontSize:9,color:"#fbbf24",fontWeight:700}}>TOTAL</div><div style={{fontSize:18,fontWeight:800,color:"#fff"}}>{my.size}</div></div>
           </div>
           <div style={{display:"flex",flexWrap:"wrap",gap:5}}>
             {myList.map(c => { const sal = salRange(c.a); return (
               <div key={c.a} onClick={()=>setSel(c.a)} style={{background:"#1e293b",borderRadius:5,padding:"6px 8px",border:"1px solid "+WC[c.w]+"33",minWidth:120,cursor:"pointer",display:"flex",flexDirection:"column",gap:1}}>
-                <div style={{display:"flex",justifyContent:"space-between"}}><span style={{fontSize:10,fontWeight:800,color:WC[c.w]}}>{c.a}</span><span style={{fontSize:7,color:TC[c.t],fontWeight:700}}>{TN[c.t]}</span></div>
-                <span style={{fontSize:8,color:"#94a3b8"}}>{c.n.slice(0,40)}</span>
-                {sal && <span style={{fontSize:8,color:"#22c55e",fontWeight:600}}>${sal[0]}K&ndash;${sal[1]}K</span>}
+                <div style={{display:"flex",justifyContent:"space-between"}}><span style={{fontSize:13,fontWeight:800,color:WC[c.w]}}>{c.a}</span><span style={{fontSize:7,color:TC[c.t],fontWeight:700}}>{TN[c.t]}</span></div>
+                <span style={{fontSize:10,color:"#cbd5e1"}}>{c.n.slice(0,50)}</span>
+                {sal && <span style={{fontSize:11,color:"#22c55e",fontWeight:600}}>${sal[0]}K&ndash;${sal[1]}K</span>}
               </div>); })}
           </div>
           <div style={{marginTop:14,borderTop:"1px solid #1e293b",paddingTop:10}}>
@@ -732,7 +732,7 @@ export default function App() {
             <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(180px,1fr))",gap:6}}>
               {Object.entries(PW).map(([pk,pv])=>{ const ow=pv.c.filter(a=>my.has(a)).length; const pct=Math.round(ow/pv.c.length*100); return (
                 <div key={pk} style={{background:"#0f172a",borderRadius:5,padding:6}}>
-                  <div style={{display:"flex",justifyContent:"space-between",fontSize:9}}><span style={{color:"#e2e8f0",fontWeight:600}}>{pv.l}</span><span style={{color:pctColor(pct),fontWeight:700}}>{pct}%</span></div>
+                  <div style={{display:"flex",justifyContent:"space-between",fontSize:11}}><span style={{color:"#f1f5f9",fontWeight:600}}>{pv.l}</span><span style={{color:pctColor(pct),fontWeight:700}}>{pct}%</span></div>
                   <div style={{height:3,background:"#1e293b",borderRadius:2,marginTop:3,overflow:"hidden"}}><div style={{height:"100%",width:pct+"%",background:pctColor(pct),borderRadius:2}}/></div>
                 </div>); })}
             </div>
@@ -745,16 +745,16 @@ export default function App() {
         {Object.entries(PW).map(([pk,pv])=>{ const ow=pv.c.filter(a=>my.has(a)); const pct=Math.round(ow.length/pv.c.length*100); return (
           <div key={pk} style={{background:"#1e293b",borderRadius:8,padding:12,border:"1px solid #334155"}}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-              <div><span style={{fontSize:13,fontWeight:800,color:"#f1f5f9"}}>{pv.l}</span>{pv.i && <span style={{fontSize:9,color:"#64748b",marginLeft:8}}>{pv.i}</span>}</div>
-              <span style={{fontSize:11,fontWeight:800,color:pctColor(pct)}}>{pct}% ({ow.length}/{pv.c.length})</span>
+              <div><span style={{fontSize:16,fontWeight:800,color:"#f8fafc"}}>{pv.l}</span>{pv.i && <span style={{fontSize:9,color:"#64748b",marginLeft:8}}>{pv.i}</span>}</div>
+              <span style={{fontSize:13,fontWeight:800,color:pctColor(pct)}}>{pct}% ({ow.length}/{pv.c.length})</span>
             </div>
             <div style={{height:4,background:"#0f172a",borderRadius:3,margin:"6px 0",overflow:"hidden"}}><div style={{height:"100%",width:pct+"%",background:pctColor(pct),borderRadius:3}}/></div>
             <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6}}>
-              {Object.entries(pv.t).sort((a,b)=>Number(a[0])-Number(b[0])).map(([t,r])=>(<span key={t} style={{fontSize:9}}><span style={{color:TC[t],fontWeight:700}}>{TN[t]}</span> <span style={{color:"#64748b"}}>${r[0]}K&ndash;${r[1]}K</span></span>))}
+              {Object.entries(pv.t).sort((a,b)=>Number(a[0])-Number(b[0])).map(([t,r])=>(<span key={t} style={{fontSize:11}}><span style={{color:TC[t],fontWeight:700}}>{TN[t]}</span> <span style={{color:"#64748b"}}>${r[0]}K&ndash;${r[1]}K</span></span>))}
             </div>
             {[1,2,3,4,5].map(t=>{ const tc=pv.c.filter(a=>{const c=ALL.find(x=>x.a===a);return c&&c.t===t;}); if(!tc.length)return null; return (
-              <div key={t} style={{marginTop:2}}><span style={{fontSize:8,color:TC[t],fontWeight:700}}>{TN[t]}: </span>
-                {tc.map(a=>{ const have=my.has(a); return <span key={a} onClick={()=>tog(a)} style={{fontSize:8,padding:"1px 5px",borderRadius:3,marginRight:2,marginBottom:1,display:"inline-block",cursor:"pointer",background:have?"rgba(251,191,36,0.13)":"#0f172a",color:have?"#fbbf24":"#64748b",border:have?"1px solid #fbbf24":"1px solid #1e293b",fontWeight:have?700:400}}>{have?"\u2713 ":""}{a}</span>; })}
+              <div key={t} style={{marginTop:2}}><span style={{fontSize:10,color:TC[t],fontWeight:700}}>{TN[t]}: </span>
+                {tc.map(a=>{ const have=my.has(a); return <span key={a} onClick={()=>tog(a)} style={{fontSize:10,padding:"3px 8px",borderRadius:3,marginRight:2,marginBottom:1,display:"inline-block",cursor:"pointer",background:have?"rgba(251,191,36,0.13)":"#0f172a",color:have?"#fbbf24":"#64748b",border:have?"1px solid #fbbf24":"1px solid #1e293b",fontWeight:have?700:400}}>{have?"\u2713 ":""}{a}</span>; })}
               </div>); })}
           </div>); })}
       </div>)}
@@ -764,7 +764,7 @@ export default function App() {
         <div>
           <div style={ss.card}><label style={ss.label}>Career Pathway</label><Dd v={sPw} onChange={setSPw} opts={Object.entries(PW).map(([k,v])=>[k,v.l])}/></div>
           <div style={ss.card}><label style={ss.label}>Certification Tier</label>
-            <div style={{display:"flex",gap:3}}>{[1,2,3,4,5].map(t=>(<button key={t} onClick={()=>setSTier(t)} style={{flex:1,padding:"5px 2px",borderRadius:4,cursor:"pointer",fontSize:7,fontWeight:700,lineHeight:1.3,border:sTier===t?"2px solid "+TC[t]:"2px solid #334155",background:sTier===t?TC[t]+"15":"#0f172a",color:sTier===t?TC[t]:"#475569"}}>{TN[t]}<br/><span style={{fontWeight:400,fontSize:6}}>{TY[t]}</span></button>))}</div>
+            <div style={{display:"flex",gap:3}}>{[1,2,3,4,5].map(t=>(<button key={t} onClick={()=>setSTier(t)} style={{flex:1,padding:"5px 2px",borderRadius:4,cursor:"pointer",fontSize:9,fontWeight:700,lineHeight:1.3,border:sTier===t?"2px solid "+TC[t]:"2px solid #334155",background:sTier===t?TC[t]+"15":"#0f172a",color:sTier===t?TC[t]:"#475569"}}>{TN[t]}<br/><span style={{fontWeight:400,fontSize:8}}>{TY[t]}</span></button>))}</div>
           </div>
           <div style={ss.card}><label style={ss.label}>DoD Security Clearance</label><Dd v={sCl} onChange={setSCl} opts={CL.map(c=>[c.id,c.l+" ("+(c.m>1?"+":"")+Math.round((c.m-1)*100)+"%)"])}/></div>
           <div style={ss.card}><label style={ss.label}>Education</label><Dd v={sDg} onChange={setSDg} opts={DG.map(d=>[d.id,d.l+" ("+(d.m>=1?"+":"")+Math.round((d.m-1)*100)+"%)"])}/></div>
@@ -773,8 +773,8 @@ export default function App() {
         <div>
           <div style={{...ss.card,textAlign:"center",padding:20}}>
             <div style={{fontSize:8,color:"#64748b",fontWeight:700,letterSpacing:1,textTransform:"uppercase"}}>Estimated Annual Salary</div>
-            <div style={{fontSize:38,fontWeight:900,color:"#22c55e",lineHeight:1.1,marginTop:4}}>${calc.mid.toLocaleString()}K</div>
-            <div style={{fontSize:12,color:"#94a3b8",marginTop:2}}>${calc.lo}K &mdash; ${calc.hi}K</div>
+            <div style={{fontSize:44,fontWeight:900,color:"#22c55e",lineHeight:1.1,marginTop:4}}>${calc.mid.toLocaleString()}K</div>
+            <div style={{fontSize:14,color:"#cbd5e1",marginTop:2}}>${calc.lo}K &mdash; ${calc.hi}K</div>
             <div style={{fontSize:9,color:"#475569",marginTop:4}}>{PW[sPw].l} &middot; {TN[sTier]}</div>
             {calc.capped && <div style={{fontSize:7,color:"#f59e0b",marginTop:4,padding:"2px 6px",background:"#f59e0b11",borderRadius:3}}>Capped at {MOD_CAP}x (raw: {calc.rawMult.toFixed(2)}x)</div>}
             <div style={{borderTop:"1px solid #334155",marginTop:12,paddingTop:10,textAlign:"left"}}>
@@ -784,9 +784,9 @@ export default function App() {
                 {label:"Education: "+calc.dg.l,m:calc.dg.m,val:(calc.dg.m>=1?"+":"")+Math.round(calc.bm*(calc.dg.m-1))+"K",color:calc.dg.m>=1?"#22c55e":"#f87171"},
                 {label:"Experience: "+calc.ex.l,m:calc.ex.m,val:(calc.ex.m>=1?"+":"")+Math.round(calc.bm*(calc.ex.m-1))+"K",color:calc.ex.m>=1?"#22c55e":"#f87171"},
               ].map((row,i)=>(<div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"4px 0",borderBottom:"1px solid #0f172a"}}>
-                <span style={{fontSize:9,color:"#e2e8f0",flex:1}}>{row.label}</span>
-                <span style={{fontSize:9,fontWeight:700,color:row.color,width:45,textAlign:"right"}}>{row.val}</span>
-                <span style={{fontSize:8,color:"#475569",width:36,textAlign:"right"}}>&times;{row.m.toFixed(2)}</span>
+                <span style={{fontSize:11,color:"#f1f5f9",flex:1}}>{row.label}</span>
+                <span style={{fontSize:11,fontWeight:700,color:row.color,width:50,textAlign:"right"}}>{row.val}</span>
+                <span style={{fontSize:10,color:"#94a3b8",width:40,textAlign:"right"}}>&times;{row.m.toFixed(2)}</span>
               </div>))}
             </div>
           </div>
@@ -794,9 +794,9 @@ export default function App() {
             <div style={{fontSize:8,fontWeight:700,color:"#64748b",marginBottom:4}}>CLEARANCE COMPARISON</div>
             {CL.map(cl=>{const mid=Math.round(calc.bm*Math.min(cl.m*calc.dg.m*calc.ex.m,MOD_CAP));const maxM=Math.round(calc.bm*Math.min(1.47*calc.dg.m*calc.ex.m,MOD_CAP));const cur=cl.id===sCl;return(
               <div key={cl.id} style={{display:"flex",alignItems:"center",gap:3,marginBottom:2}}>
-                <span style={{fontSize:7,color:cur?cl.c:"#475569",fontWeight:cur?700:400,width:88,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{cl.l}</span>
+                <span style={{fontSize:9,color:cur?cl.c:"#94a3b8",fontWeight:cur?700:400,width:88,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{cl.l}</span>
                 <div style={{flex:1,height:8,background:"#0f172a",borderRadius:3,overflow:"hidden"}}><div style={{width:(mid/maxM*100)+"%",height:"100%",background:cur?cl.c:cl.c+"33",borderRadius:3}}/></div>
-                <span style={{fontSize:8,color:cur?"#fff":"#475569",fontWeight:cur?700:400,width:38,textAlign:"right"}}>${mid}K</span>
+                <span style={{fontSize:10,color:cur?"#fff":"#94a3b8",fontWeight:cur?700:400,width:38,textAlign:"right"}}>${mid}K</span>
               </div>);})}
           </div>
         </div>
@@ -806,13 +806,13 @@ export default function App() {
       {tab === "sources" && (<div>
         <div style={{...ss.card,marginBottom:12}}>
           <div style={{fontSize:11,fontWeight:700,color:"#f1f5f9",marginBottom:6}}>Methodology</div>
-          <div style={{fontSize:9,color:"#94a3b8",lineHeight:1.6}}>Base ranges are pathway+tier estimates (not per-cert averages) reflecting US national base salary. Compound modifier capped at {MOD_CAP}x. Known gaps: geographic variation unmodeled (biggest factor), Glassdoor/PayScale skew high (self-selection), degree premium from BLS/NACE not cyber-specific.</div>
+          <div style={{fontSize:11,color:"#cbd5e1",lineHeight:1.7}}>Base ranges are pathway+tier estimates (not per-cert averages) reflecting US national base salary. Compound modifier capped at {MOD_CAP}x. Known gaps: geographic variation unmodeled (biggest factor), Glassdoor/PayScale skew high (self-selection), degree premium from BLS/NACE not cyber-specific.</div>
         </div>
         <div style={{fontSize:10,fontWeight:700,color:"#94a3b8",marginBottom:6}}>DATA SOURCES ({SOURCES.length})</div>
         {SOURCES.map((s,i)=>(<div key={i} style={{...ss.card,padding:10}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
-            <div><div style={{fontSize:10,fontWeight:700,color:"#e2e8f0"}}>{s.n}</div><div style={{fontSize:8,color:"#94a3b8",marginTop:1}}>{s.d}</div></div>
-            <a href={s.u} target="_blank" rel="noopener noreferrer" style={{fontSize:8,color:"#3b82f6",textDecoration:"none",whiteSpace:"nowrap",marginLeft:8}}>Source &rarr;</a>
+            <div><div style={{fontSize:12,fontWeight:700,color:"#f1f5f9"}}>{s.n}</div><div style={{fontSize:10,color:"#cbd5e1",marginTop:2}}>{s.d}</div></div>
+            <a href={s.u} target="_blank" rel="noopener noreferrer" style={{fontSize:10,color:"#60a5fa",textDecoration:"none",whiteSpace:"nowrap",marginLeft:8}}>Source &rarr;</a>
           </div>
         </div>))}
         <div style={{...ss.card,marginTop:6}}>
@@ -827,12 +827,12 @@ export default function App() {
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:8}}>
             <div style={{flex:1,minWidth:0}}>
               <div style={{display:"flex",gap:6,alignItems:"center",flexWrap:"wrap"}}>
-                <span style={{background:WC[c.w],color:"#fff",padding:"3px 10px",borderRadius:4,fontWeight:800,fontSize:13}}>{c.a}</span>
+                <span style={{background:WC[c.w],color:"#fff",padding:"3px 10px",borderRadius:4,fontWeight:800,fontSize:15}}>{c.a}</span>
                 {c.s==="retired"&&<span style={{fontSize:8,color:"#f87171",background:"#f8717118",padding:"2px 5px",borderRadius:3}}>RETIRED</span>}
                 <span style={{fontSize:8,color:TC[c.t],fontWeight:700}}>{TN[c.t]} &middot; {DN[c.d]}</span>
               </div>
-              <div style={{fontSize:12,fontWeight:600,color:"#f1f5f9",marginTop:4}}>{c.n}</div>
-              {c.b && <div style={{fontSize:10,color:"#94a3b8",marginTop:3,lineHeight:1.5}}>{c.b}</div>}
+              <div style={{fontSize:15,fontWeight:600,color:"#f8fafc",marginTop:6}}>{c.n}</div>
+              {c.b && <div style={{fontSize:12,color:"#cbd5e1",marginTop:4,lineHeight:1.6}}>{c.b}</div>}
             </div>
             <div style={{display:"flex",gap:4,flexShrink:0}}>
               <button onClick={()=>tog(c.a)} style={{padding:"5px 10px",borderRadius:5,border:"none",cursor:"pointer",fontSize:10,fontWeight:700,background:owned?"#fbbf24":"#334155",color:owned?"#000":"#94a3b8"}}>{owned?"\u2713 Owned":"+ Add"}</button>
@@ -852,19 +852,19 @@ export default function App() {
 }
 
 const ss = {
-  root:{fontFamily:"'Segoe UI',system-ui,sans-serif",background:"#0b1120",color:"#e2e8f0",minHeight:"100vh",padding:14},
-  h1:{fontSize:18,fontWeight:900,margin:0,color:"#f8fafc",letterSpacing:-0.5},
-  sub:{fontSize:9,color:"#475569"},
-  tab:{padding:"5px 12px",fontSize:9,fontWeight:700,border:"1px solid",cursor:"pointer",borderRadius:5},
-  sel:{padding:"4px 5px",fontSize:9,borderRadius:4,border:"1px solid #1e293b",background:"#0f172a",color:"#e2e8f0",cursor:"pointer"},
-  input:{padding:"4px 6px",fontSize:9,borderRadius:4,border:"1px solid #1e293b",background:"#0f172a",color:"#e2e8f0",width:110},
+  root:{fontFamily:"'Segoe UI',system-ui,sans-serif",background:"#101827",color:"#e2e8f0",minHeight:"100vh",padding:14},
+  h1:{fontSize:22,fontWeight:900,margin:0,color:"#f8fafc",letterSpacing:-0.5},
+  sub:{fontSize:11,color:"#94a3b8"},
+  tab:{padding:"7px 16px",fontSize:11,fontWeight:700,border:"1px solid",cursor:"pointer",borderRadius:5},
+  sel:{padding:"6px 8px",fontSize:11,borderRadius:5,border:"1px solid #1e293b",background:"#0f172a",color:"#e2e8f0",cursor:"pointer"},
+  input:{padding:"6px 10px",fontSize:11,borderRadius:5,border:"1px solid #334155",background:"#0f172a",color:"#f1f5f9",width:150},
   progBar:{display:"flex",alignItems:"center",background:"#1e293b",borderRadius:5,padding:"5px 10px",marginBottom:6,fontSize:10,border:"1px solid #334155"},
-  leg:{display:"flex",alignItems:"center",gap:3,fontSize:7,color:"#64748b"},
-  dot:{width:8,height:8,borderRadius:2,display:"inline-block"},
-  card:{background:"#1e293b",borderRadius:7,padding:12,border:"1px solid #334155",marginBottom:8},
-  label:{fontSize:8,color:"#64748b",fontWeight:700,marginBottom:3,display:"block",textTransform:"uppercase",letterSpacing:0.5},
-  detail:{position:"fixed",bottom:0,left:0,right:0,background:"#111827",borderTop:"2px solid #2563eb",padding:14,zIndex:100,maxHeight:"38vh",overflow:"auto"},
-  dl:{fontSize:8,color:"#475569",display:"block"},
-  dv:{fontSize:10,color:"#e2e8f0",display:"block",marginTop:1},
-  empty:{textAlign:"center",padding:40,color:"#94a3b8",fontSize:11,lineHeight:1.6},
+  leg:{display:"flex",alignItems:"center",gap:4,fontSize:10,color:"#64748b"},
+  dot:{width:11,height:11,borderRadius:2,display:"inline-block"},
+  card:{background:"#1e293b",borderRadius:8,padding:14,border:"1px solid #3b4a5f",marginBottom:8},
+  label:{fontSize:10,color:"#94a3b8",fontWeight:700,marginBottom:3,display:"block",textTransform:"uppercase",letterSpacing:0.5},
+  detail:{position:"fixed",bottom:0,left:0,right:0,background:"#1a2332",borderTop:"3px solid #2563eb",padding:20,zIndex:100,maxHeight:"38vh",overflow:"auto"},
+  dl:{fontSize:10,color:"#94a3b8",display:"block"},
+  dv:{fontSize:13,color:"#f1f5f9",display:"block",marginTop:1},
+  empty:{textAlign:"center",padding:40,color:"#cbd5e1",fontSize:13,lineHeight:1.6},
 };

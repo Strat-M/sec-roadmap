@@ -517,21 +517,25 @@ Google MLE|Google Professional ML Engineer|$200 exam|e|e|3|a|https://cloud.googl
 `;
 
 const DN={n:"Network",i:"IAM",e:"Engineering",a:"Asset & Privacy",g:"Governance",t:"Assessment",s:"Software",b:"Blue Ops",r:"Red Ops"};
-const DC={n:"#70AD47",i:"#0d9488",e:"#ea8c2a",a:"#ca9a04",g:"#6b7280",t:"#7c3aed",s:"#3b82f6",b:"#1d4ed8",r:"#dc2626"};
-const DO=["g","t","n","i","e","a","s","b","r"];
+const DC={n:"#22c55e",i:"#ec4899",e:"#f97316",a:"#84cc16",g:"#f59e0b",t:"#a855f7",s:"#06b6d4",b:"#3b82f6",r:"#ef4444"};
+// Optimal column order: max adjacent overlap for spanning
+const DO=["n","e","s","r","b","t","g","i","a"];
 const WN={e:"Engineering",m:"Management/GRC",b:"Defensive (Blue)",r:"Offensive (Red)"};
 const WC={e:"#ea8c2a",m:"#6b7280",b:"#1d4ed8",r:"#dc2626"};
 const TN={5:"Master",4:"Expert",3:"Professional",2:"Associate",1:"Foundational"};
 const TC={5:"#a855f7",4:"#ef4444",3:"#f59e0b",2:"#84cc16",1:"#22c55e"};
 const TY={5:"8+ yr",4:"5-8 yr",3:"2-5 yr",2:"0-2 yr",1:"0 yr"};
 
+// Cross-domain cert mapping: abbr -> array of ALL domains it belongs to
+const XD={"CISSP":["g","e","b","n","a","s","i","t"],"Security+":["g","b","n","e","r"],"SSCP":["g","b","e","n"],"CASP+":["g","e","b","r"],"GSE":["g","b","e","r"],"GSEC":["g","b","e"],"CISSP Concentrations":["g","e","b"],"CCSP":["e","g","a"],"CCISO":["g","t","b"],"OSCP":["r","t","n"],"PCSAE":["n","e","s"],"FCSS SASE":["n","i","e"],"CDPSE":["a","s","e"],"SecAI+":["s","b","g"],"CAISP":["s","r","b"],"CC":["g","b"],"CCNA":["n","e"],"CCNP Sec":["n","e"],"CCNP Ent":["n","e"],"CCIE Sec":["n","e"],"CCIE Ent":["n","e"],"PCCET":["n","e"],"PCNSA":["n","e"],"PCNSE":["n","e"],"FCA":["n","e"],"FCF":["n","e"],"FCP NS":["n","e"],"FCSS NS":["n","e"],"FCSS ZTA":["n","i"],"FCSS OT":["n","e"],"F5 CA":["n","e"],"F5 CTS APM":["n","i"],"CSA CCSK":["e","g"],"CSA CGC":["e","g"],"AZ-500":["e","b"],"SC-100":["e","g"],"SC-200":["b","e"],"SC-300":["i","e"],"SC-400":["a","e"],"AWS CSS":["e","g"],"Google PCSE":["e","g"],"CKS":["e","s"],"CKA":["e","s"],"CKAD":["e","s"],"CISA":["t","g"],"CRISC":["g","t"],"CISM":["g","t"],"CGRC":["g","t"],"CGEIT":["g","t"],"ISO 27001 LA":["t","g"],"PECB 27001LA":["t","g"],"APMG 27001A":["t","g"],"GSNA":["t","b"],"GMON":["t","b"],"PCI QSA":["t","g"],"IIA CIA":["t","g"],"CySA+":["b","t"],"GCIH":["b","r"],"GCIA":["b","t"],"GCED":["b","e"],"GCFA":["b","t"],"GREM":["b","r"],"GCTI":["b","t"],"CEH":["b","r"],"CHFI":["b","t"],"EnCE":["b","t"],"CCE":["b","t"],"CFCE":["b","t"],"GPEN":["r","t"],"GWAPT":["r","s"],"GXPN":["r","s"],"OSWE":["r","s"],"OSWA":["r","s"],"BSCP":["r","s"],"CPENT":["r","t"],"Pentest+":["r","t"],"HTB CPTS":["r","t"],"HTB CBBH":["r","s"],"CSSLP":["s","g"],"GWEB":["s","r"],"GMLE":["s","e"],"DevNet A":["s","n"],"DevNet Pro":["s","n"],"CIAM":["i","g"],"CIDPRO":["i","g"],"SC-900":["i","g"],"CIPP":["a","g"],"CIPT":["a","s"],"CMMC RP":["g","t"],"CMMC CCP":["g","t"],"CMMC CCA":["t","g"],"CMMC CCI":["g","t"],"AIGP":["g","s"],"GASAE":["b","s"],"GOAA":["r","s"],"GAIPS":["s","e"],"AAISM":["g","t"],"AAIA":["t","g"],"TAISE":["e","s"],"AI-102":["e","s"],"Google MLE":["e","s"],"GICSP":["e","n"],"GRID":["e","b"],"GCIP":["e","n"],"ISA CFS":["e","n"],"ISA CDS":["e","n"],"ISA CE":["e","g"],"ISA CRAS":["e","t"],"CSSA":["e","n"],"CIOTSP":["e","n"]};
+
 const PW={
   soc:{l:"SOC Analyst",i:"Tier 1 alert triage through SOC manager",t:{1:[45,65],2:[65,90],3:[90,130],4:[130,160],5:[160,200]},c:["CC","Security+","CySA+","BTL1","SC-200","GCIH","GCIA","GCED","BTL2","GCFR","CISSP","GSE","GFACT","GSOC","ECIH","CND","CSX-F","OSDA","CCOA","CCD","HTB CDSA","SC-400","GIME","GCDA"]},
   pen:{l:"Penetration Tester",i:"Junior pentester through red team lead",t:{1:[50,66],2:[66,90],3:[90,130],4:[130,170],5:[170,220]},c:["eJPT","Security+","Net+","PNPT","OSCP","GPEN","CRTO","GWAPT","BSCP","OSEP","OSWE","OSED","GXPN","OSCE3","OSEE","Pentest+","HTB CPTS","HTB CBBH","eCPPT","eMAPT","eWPT","eWPTX","PJMR","GCPN","CPENT","LPT","CRTO II","GRTP","GX-PT","PACES","HTB CWEE","OSWP","OSMR","OSWA"]},
   arch:{l:"Security Architect",i:"Engineer to principal architect",t:{1:[60,75],2:[80,105],3:[110,155],4:[155,200],5:[195,260]},c:["AZ-900","AWS CP","Security+","CCNA","AZ-500","CCSP","CCNP Sec","SC-100","TOGAF","CISSP","SABSA SCM","CCIE Sec","SABSA SCF","SABSA SCP","AZ-305","Cloud+","RHCA","VCDX DCV","GSE","CSA CCSK","Google PCSE"]},
   grc:{l:"GRC / Compliance",i:"Compliance analyst to GRC director",t:{1:[48,63],2:[65,88],3:[88,135],4:[135,170],5:[170,220]},c:["CC","Security+","CGRC","SSCP","CISA","CRISC","CISM","CISSP","CCISO","CGEIT","ITIL Master","ITIL Fdn","ITIL MP","PMP","CAPM","Project+","GSEC","GSLC","GSTRT","GISP","CASP+","PSM I","PECB 27001F","PECB 27001LI","PECB 27001LA","APMG 27001F","CCOA","CSX-P","CMMC RP","CMMC CCP","CMMC CCA"]},
-  cloud:{l:"Cloud Security Engineer",i:"Cloud associate to cloud architect",t:{1:[58,75],2:[78,105],3:[105,155],4:[150,200],5:[190,240]},c:["AZ-900","AWS CP","Google ACE","Security+","AZ-104","AWS SAA","Cloud+","CSA CCSK","AZ-500","AWS CSS","Google PCSE","CCSP","CKS","SC-100","AZ-305","AWS SAP","CISSP","GCLD","GCSA","CKA","CKAD","KCNA","DCA"]},
-  dfir:{l:"Digital Forensics & IR",i:"Junior analyst to DFIR lead",t:{1:[50,68],2:[68,92],3:[92,135],4:[135,170],5:[170,210]},c:["Security+","CySA+","GCFE","ECIH","GCIH","GCFA","GASF","EnCE","CHFI","GCFR","GREM","GEIR","GX-FA","GSE","eCDFP","eCIR","GBFA","GNFA","CCE","CFCE","MDFIR"]},
+  cloud:{l:"Cloud Security",i:"Cloud associate to cloud architect",t:{1:[58,75],2:[78,105],3:[105,155],4:[150,200],5:[190,240]},c:["AZ-900","AWS CP","Google ACE","Security+","AZ-104","AWS SAA","Cloud+","CSA CCSK","AZ-500","AWS CSS","Google PCSE","CCSP","CKS","SC-100","AZ-305","AWS SAP","CISSP","GCLD","GCSA","CKA","CKAD","KCNA","DCA"]},
+  dfir:{l:"DFIR",i:"Junior analyst to DFIR lead",t:{1:[50,68],2:[68,92],3:[92,135],4:[135,170],5:[170,210]},c:["Security+","CySA+","GCFE","ECIH","GCIH","GCFA","GASF","EnCE","CHFI","GCFR","GREM","GEIR","GX-FA","GSE","eCDFP","eCIR","GBFA","GNFA","CCE","CFCE","MDFIR"]},
   appsec:{l:"AppSec / DevSecOps",i:"Developer to AppSec principal",t:{1:[60,78],2:[78,108],3:[108,150],4:[148,190],5:[185,230]},c:["Security+","CASE","DevNet A","CSSLP","GWEB","OSWA","BSCP","OSWE","DevNet Pro","CCSC","SOG CAP","PDSO CDP","PDSO CDE","MASE","GMLE"]},
   mgr:{l:"Security Manager / CISO",i:"Junior manager to CISO",t:{1:[52,68],2:[70,100],3:[105,155],4:[155,240],5:[240,420]},c:["CC","Security+","SSCP","CISSP","CISM","PMP","CGRC","CCISO","CGEIT","CRISC","ITIL MP","ITIL Master","GSLC","GSTRT","S-CISO","GSE","CASP+","GSEC","PgMP","CMMC CCA"]},
   dod:{l:"DoD 8140 / CMMC",i:"IAT-I through IAM-III + CMMC",t:{1:[50,72],2:[75,108],3:[105,145],4:[140,175],5:[170,210]},c:["CC","Security+","CCNA","CySA+","GSEC","SSCP","CASP+","CISSP","GCIH","GCED","CISM","CGRC","GSLC","CCISO","CMMC RP","CMMC CCP","CMMC CCA"]},
@@ -570,21 +574,23 @@ const SOURCES = [
   {n:"Glassdoor 2026",u:"https://www.glassdoor.com/Salaries/",d:"Pen tester: $154K. CISO: $262-289K avg."},
   {n:"ZipRecruiter May 2026",u:"https://www.ziprecruiter.com/Salaries/",d:"Sr pen tester: $120K. TS/SCI cyber: $132K avg."},
   {n:"ClearanceJobs 2025-2026",u:"https://news.clearancejobs.com/",d:"IC-supporting: $165K avg. Clearance compensation survey."},
-  {n:"FullScope Staffing 2026",u:"https://finance.yahoo.com/news/ts-sci-salary-surge-expected-180600721.html",d:"FSP as defining salary multiplier. Triple threat convergence."},
+  {n:"FullScope Staffing 2026",u:"https://finance.yahoo.com/news/ts-sci-salary-surge-expected-180600721.html",d:"FSP as defining salary multiplier."},
   {n:"KORE1 SOC Guide 2026",u:"https://www.kore1.com/soc-analyst-career-path-salary-guide/",d:"Tier 1: $50-80K. Tier 3: $90-140K+."},
   {n:"Cybersecurity Ventures CISO Report 2026",u:"https://cybersecurityventures.com/2026-ciso-salary-and-compensation-data/",d:"CISO median $321-385K. Enterprise $500K+."},
   {n:"StationX PenTest Guide 2026",u:"https://www.stationx.net/how-much-do-penetration-testers-make/",d:"Mid: $117K. Senior: $140K. $200K+ possible."},
   {n:"CyberSecJobs Cleared Guide 2026",u:"https://cybersecjobs.com/cybersecurity-salary-guide/",d:"Cleared 20-40% above commercial. FSP +$45-65K/yr."},
-  {n:"Axis Intelligence Salary 2026",u:"https://axis-intelligence.com/cybersecurity-salary-2026-complete-guide/",d:"Sec engineer ~$130K. Cloud arch: $170-220K."},
-  {n:"PayScale 2026",u:"https://www.payscale.com/",d:"Jr SOC: $61K avg. Pen tester: $102K avg (366 profiles)."},
+  {n:"PayScale 2026",u:"https://www.payscale.com/",d:"Jr SOC: $61K avg. Pen tester: $102K avg."},
+  {n:"StationX AI Cert Rankings 2026",u:"https://app.stationx.net/articles/best-ai-security-certifications",d:"AI security jobs +412% since 2024. 68% orgs hiring AI security."},
 ];
 
 const MOD_CAP = 2.2;
 
 const ALL = RAW.trim().split("\n").map(ln => {
   const p = ln.split("|");
-  return { a:p[0], n:p[1], p:p[2], d:p[3], w:p[4], t:Number(p[5]), s:p[6]==="x"?"retired":"active", u:p[7]||"", b:p[8]||"" };
+  return { a:p[0], n:p[1], p:p[2], d:p[3], w:p[4], t:Number(p[5]), s:p[6]==="x"?"retired":"active", u:p[7]||"", b:p[8]||"", xd:null };
 });
+// Attach cross-domain data
+ALL.forEach(c => { if (XD[c.a]) c.xd = XD[c.a]; });
 
 export default function App() {
   const [tab, setTab] = useState("browse");
@@ -601,8 +607,8 @@ export default function App() {
   const [sDg, setSDg] = useState("ba");
   const [sEx, setSEx] = useState("3");
 
-  useEffect(() => { (async () => { try { const r = await window.storage.get("my_certs_v4"); if (r && r.value) setMy(new Set(JSON.parse(r.value))); } catch(e){} setLoaded(true); })(); }, []);
-  useEffect(() => { if (!loaded) return; (async () => { try { await window.storage.set("my_certs_v4", JSON.stringify([...my])); } catch(e){} })(); }, [my, loaded]);
+  useEffect(() => { (async () => { try { const r = await window.storage.get("my_certs_v6"); if (r && r.value) setMy(new Set(JSON.parse(r.value))); } catch(e){} setLoaded(true); })(); }, []);
+  useEffect(() => { if (!loaded) return; (async () => { try { await window.storage.set("my_certs_v6", JSON.stringify([...my])); } catch(e){} })(); }, [my, loaded]);
 
   const tog = useCallback((a) => setMy(prev => { const n = new Set(prev); n.has(a)?n.delete(a):n.add(a); return n; }), []);
   const certPaths = useCallback((a) => Object.entries(PW).filter(([,v]) => v.c.includes(a)).map(([,v]) => v.l), []);
@@ -613,7 +619,7 @@ export default function App() {
     let c = ALL.slice();
     if (fStat === "active") c = c.filter(x => x.s === "active");
     else if (fStat === "retired") c = c.filter(x => x.s === "retired");
-    if (fDom !== "all") c = c.filter(x => x.d === fDom);
+    if (fDom !== "all") c = c.filter(x => x.d === fDom || (x.xd && x.xd.includes(fDom)));
     if (search) { const q = search.toLowerCase(); c = c.filter(x => x.a.toLowerCase().includes(q) || x.n.toLowerCase().includes(q)); }
     const ps = fPath !== "none" && PW[fPath] ? new Set(PW[fPath].c) : null;
     return c.map(x => ({ ...x, inP: !ps || ps.has(x.a) }));
@@ -624,116 +630,153 @@ export default function App() {
 
   const calc = useMemo(() => {
     const pw = PW[sPw]; const base = pw.t[sTier]; const cl = CL.find(c => c.id === sCl); const dg = DG.find(d => d.id === sDg); const ex = EX.find(e => e.id === sEx);
-    const bm = Math.round((base[0]+base[1])/2); const rawMult = cl.m*dg.m*ex.m; const cappedMult = Math.min(rawMult,MOD_CAP); const capped = rawMult > MOD_CAP;
+    const bm = Math.round((base[0]+base[1])/2); const rawMult = cl.m*dg.m*ex.m; const cappedMult = Math.min(rawMult,MOD_CAP);
     const lo = Math.round(base[0]*cappedMult); const hi = Math.round(base[1]*cappedMult);
-    return { lo, hi, mid: Math.round((lo+hi)/2), base, bm, cl, dg, ex, rawMult, cappedMult, capped };
+    return { lo, hi, mid: Math.round((lo+hi)/2), base, bm, cl, dg, ex, rawMult, cappedMult, capped: rawMult > MOD_CAP };
   }, [sPw, sTier, sCl, sDg, sEx]);
 
   const Dd = ({v,onChange,opts}) => (<select value={v} onChange={e=>onChange(e.target.value)} style={ss.sel}>{opts.map(([k,l])=><option key={k} value={k}>{l}</option>)}</select>);
 
+
+
   const Tile = ({c}) => {
     const owned = my.has(c.a); const isSel = sel === c.a;
+    const doms = c.xd || [c.d];
+    const isMulti = doms.length > 1;
+    const isCore = doms.length >= 4;
     return (<div onClick={() => setSel(isSel ? null : c.a)} style={{
-      background: c.s==="retired" ? "#1f2937" : (WC[c.w]||"#444"),
+      background: c.s==="retired" ? "#1f2937" : isCore ? "linear-gradient(135deg, " + DC[c.d] + ", #4338ca)" : (DC[c.d]||"#444"),
       opacity: c.inP===false ? 0.08 : c.s==="retired" ? 0.4 : 1,
-      color:"#fff", padding:"4px 8px", borderRadius:4, cursor:"pointer", fontSize:11, fontWeight:700,
-      display:"inline-flex", alignItems:"center", justifyContent:"center", position:"relative",
-      border: owned ? "2px solid #fbbf24" : isSel ? "2px solid #fff" : "1px solid transparent",
+      color:"#fff", padding:"4px 8px", borderRadius:4, cursor:"pointer",
+      fontSize: 11, fontWeight:700,
+      display:"inline-flex", alignItems:"center", gap: 3, position:"relative",
+      border: owned ? "2px solid #fbbf24" : isSel ? "2px solid #fff" : isCore ? "1px solid rgba(255,255,255,0.25)" : "1px solid rgba(255,255,255,0.08)",
       borderStyle: c.s==="retired" ? "dashed" : "solid", transition:"opacity 0.15s",
-      lineHeight:1.2, textAlign:"center",
+      lineHeight:1.2,
     }}>
       {c.a}
-      {owned && <span style={{position:"absolute",top:-4,right:-4,background:"#fbbf24",color:"#000",borderRadius:8,width:14,height:14,fontSize:8,display:"flex",alignItems:"center",justifyContent:"center",fontWeight:900}}>&#10003;</span>}
+      {isMulti && <span style={{display:"flex",gap:1,marginLeft:1}}>{doms.filter(d=>d!==c.d).slice(0,3).map(d=><span key={d} style={{width:6,height:6,borderRadius:6,background:DC[d],border:"1px solid rgba(0,0,0,0.3)"}} title={DN[d]}/>)}</span>}
+      {owned && <span style={{position:"absolute",top:-5,right:-5,background:"#fbbf24",color:"#000",borderRadius:10,width:14,height:14,fontSize:8,display:"flex",alignItems:"center",justifyContent:"center",fontWeight:900}}>&#10003;</span>}
     </div>);
   };
 
-  // Columns to show based on filter
-  const visibleDomains = fDom === "all" ? DO : [fDom];
+  // Visible domains
+  const visDom = fDom === "all" ? DO : [fDom];
+
+  // Simple grid: each cert in primary domain cell, cross-domain shown via dots
+  const renderTierGrid = (tier) => {
+    const tierCerts = filtered.filter(c => c.t === tier);
+    if (!tierCerts.length) return null;
+
+    // Group certs into domain cells - primary domain placement
+    // Cross-domain certs also appear in secondary domains when that domain is filtered
+    const cells = {};
+    visDom.forEach(d => { cells[d] = []; });
+
+    tierCerts.forEach(c => {
+      const doms = c.xd || [c.d];
+      // Place in primary if visible, else first visible secondary
+      if (visDom.includes(c.d)) {
+        cells[c.d].push(c);
+      } else {
+        const alt = visDom.find(d => doms.includes(d));
+        if (alt) cells[alt].push(c);
+      }
+    });
+
+    return (
+      <div key={tier} style={{ display: "flex", marginBottom: 1 }}>
+        <div style={{ ...ss.tierLbl, borderRightColor: TC[tier] }}>
+          <span style={{ color: TC[tier], fontWeight: 800, fontSize: 13 }}>{TN[tier]}</span>
+          <span style={{ color: "#94a3b8", fontSize: 9 }}>{TY[tier]}</span>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: visDom.map(() => "1fr").join(" "), gap: 0, flex: 1 }}>
+          {visDom.map(d => (
+            <div key={d} style={{ padding: 4, borderBottom: "1px solid #1e293b", borderRight: "1px solid #1e293b", minHeight: 32, display: "flex", flexWrap: "wrap", gap: 3, alignContent: "flex-start" }}>
+              {cells[d].map(c => <Tile key={c.a} c={c} />)}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div style={ss.root}>
-      <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-end",marginBottom:10,flexWrap:"wrap",gap:6}}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 10, flexWrap: "wrap", gap: 6 }}>
         <div>
           <h1 style={ss.h1}>SecCert Roadmap</h1>
-          <span style={ss.sub}>{ALL.length} certs &middot; {my.size} owned &middot; {Object.keys(PW).length} career paths</span>
+          <span style={ss.sub}>{ALL.length} certs &middot; {my.size} owned &middot; {Object.keys(PW).length} paths &middot; cross-domain spanning</span>
         </div>
-        <div style={{display:"flex",gap:2}}>
-          {[["browse","Browse"],["portfolio","My Certs"],["pathways","Pathways"],["salary","Salary"],["sources","Sources"]].map(([k,l])=>(
-            <button key={k} onClick={()=>setTab(k)} style={{...ss.tab,background:tab===k?"#2563eb":"transparent",color:tab===k?"#fff":"#64748b",borderColor:tab===k?"#2563eb":"#334155"}}>{l}{k==="portfolio"&&my.size>0?` (${my.size})`:""}</button>
+        <div style={{ display: "flex", gap: 2 }}>
+          {[["browse","Browse"],["portfolio","My Certs"],["pathways","Pathways"],["salary","Salary"],["sources","Sources"]].map(([k,l]) => (
+            <button key={k} onClick={() => setTab(k)} style={{ ...ss.tab, background: tab === k ? "#2563eb" : "transparent", color: tab === k ? "#fff" : "#94a3b8", borderColor: tab === k ? "#2563eb" : "#334155" }}>
+              {l}{k === "portfolio" && my.size > 0 ? ` (${my.size})` : ""}
+            </button>
           ))}
         </div>
       </div>
 
-      {/* ===== BROWSE — DOMAIN COLUMN GRID ===== */}
+      {/* ===== BROWSE ===== */}
       {tab === "browse" && (<div>
-        <div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:6}}>
-          <input placeholder="Search..." value={search} onChange={e=>setSearch(e.target.value)} style={ss.input}/>
-          <Dd v={fDom} onChange={setFDom} opts={[["all","All Domains"],...DO.map(d=>[d,DN[d]])]}/>
-          <Dd v={fStat} onChange={setFStat} opts={[["active","Active"],["all","All (+ retired)"],["retired","Retired only"]]}/>
-          <Dd v={fPath} onChange={setFPath} opts={[["none","No pathway highlight"],...Object.entries(PW).map(([k,v])=>[k,v.l])]}/>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 6 }}>
+          <input placeholder="Search..." value={search} onChange={e => setSearch(e.target.value)} style={ss.input} />
+          <Dd v={fDom} onChange={setFDom} opts={[["all", "All Domains"], ...DO.map(d => [d, DN[d]])]} />
+          <Dd v={fStat} onChange={setFStat} opts={[["active", "Active"], ["all", "All (+ retired)"], ["retired", "Retired only"]]} />
+          <Dd v={fPath} onChange={setFPath} opts={[["none", "No pathway highlight"], ...Object.entries(PW).map(([k, v]) => [k, v.l])]} />
         </div>
         {fPath !== "none" && pprog && (
           <div style={ss.progBar}>
-            <span style={{fontWeight:700,color:"#fbbf24",marginRight:8}}>{PW[fPath].l}</span>
-            <div style={{flex:1,height:5,background:"#0f172a",borderRadius:3,overflow:"hidden"}}><div style={{height:"100%",width:pprog.pct+"%",background:pctColor(pprog.pct),borderRadius:3}}/></div>
-            <span style={{fontSize:12,fontWeight:700,color:pctColor(pprog.pct),marginLeft:8}}>{pprog.pct}% ({pprog.owned}/{pprog.total})</span>
+            <span style={{ fontWeight: 700, color: "#fbbf24", marginRight: 8 }}>{PW[fPath].l}</span>
+            <div style={{ flex: 1, height: 5, background: "#0f172a", borderRadius: 3, overflow: "hidden" }}><div style={{ height: "100%", width: pprog.pct + "%", background: pctColor(pprog.pct), borderRadius: 3 }} /></div>
+            <span style={{ fontSize: 12, fontWeight: 700, color: pctColor(pprog.pct), marginLeft: 8 }}>{pprog.pct}% ({pprog.owned}/{pprog.total})</span>
           </div>
         )}
-        {/* Grid: columns = domains, rows = tiers (top=master) */}
-        <div style={{overflowX:"auto",paddingBottom:8}}>
-          <div style={{display:"grid",gridTemplateColumns:"56px "+visibleDomains.map(()=>"1fr").join(" "),gap:0,minWidth:visibleDomains.length > 3 ? visibleDomains.length * 110 : undefined}}>
-            {/* Column headers */}
-            <div/>
-            {visibleDomains.map(d => (
-              <div key={d} style={{padding:"4px 2px",textAlign:"center",borderBottom:"2px solid "+DC[d],fontSize:11,fontWeight:800,color:DC[d],letterSpacing:0.3}}>{DN[d]}</div>
-            ))}
-            {/* Tier rows */}
-            {[5,4,3,2,1].map(tier => (<>
-              <div key={"tl"+tier} style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",padding:"4px 2px",borderRight:"2px solid "+TC[tier]}}>
-                <span style={{fontSize:12,fontWeight:800,color:TC[tier],writingMode:"vertical-rl",transform:"rotate(180deg)"}}>{TN[tier]}</span>
-                <span style={{fontSize:9,color:"#94a3b8"}}>{TY[tier]}</span>
-              </div>
-              {visibleDomains.map(d => {
-                const certs = filtered.filter(c => c.d === d && c.t === tier);
-                return (
-                  <div key={d+tier} style={{padding:4,borderBottom:"1px solid #1e293b",borderRight:"1px solid #1e293b",minHeight:34,display:"flex",flexWrap:"wrap",gap:2,alignContent:"flex-start"}}>
-                    {certs.map(c => <Tile key={c.a} c={c}/>)}
-                  </div>
-                );
-              })}
-            </>))}
+        {/* Column headers */}
+        {visDom.length > 1 && (
+          <div style={{ display: "flex" }}>
+            <div style={{ width: 80, minWidth: 80 }} />
+            <div style={{ display: "grid", gridTemplateColumns: visDom.map(() => "1fr").join(" "), gap: 0, flex: 1 }}>
+              {visDom.map(d => (
+                <div key={d} style={{ padding: "5px 2px", textAlign: "center", borderBottom: "3px solid " + DC[d], fontSize: 11, fontWeight: 800, color: DC[d] }}>{DN[d]}</div>
+              ))}
+            </div>
           </div>
+        )}
+        {/* Tier rows with spanning */}
+        <div style={{ overflowX: "auto" }}>
+          {[5, 4, 3, 2, 1].map(tier => renderTierGrid(tier))}
         </div>
-        <div style={{display:"flex",flexWrap:"wrap",gap:10,marginTop:6}}>
-          {Object.entries(WN).map(([k,v])=><span key={k} style={ss.leg}><span style={{...ss.dot,background:WC[k]}}/>{v}</span>)}
-          <span style={ss.leg}><span style={{...ss.dot,background:"#1f2937",border:"1px dashed #555"}}/> Retired</span>
-          <span style={ss.leg}><span style={{...ss.dot,background:"#fbbf24",borderRadius:8}}/> Owned</span>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 8, paddingTop: 8, borderTop: "1px solid #1e293b" }}>
+          {DO.map(d => <span key={d} style={ss.leg}><span style={{ ...ss.dot, background: DC[d] }} />{DN[d]}</span>)}
+          <span style={ss.leg}><span style={{ ...ss.dot, background: "#fbbf24", borderRadius: 8 }} /> Owned</span>
+          <span style={ss.leg}><span style={{ width: 6, height: 6, borderRadius: 6, background: "#70AD47", display: "inline-block", border: "1px solid rgba(0,0,0,0.3)" }} /> Domain dot = also belongs to that domain</span>
         </div>
       </div>)}
 
       {/* ===== PORTFOLIO ===== */}
       {tab === "portfolio" && (<div>
-        {my.size === 0 ? (<div style={ss.empty}><div style={{fontSize:15,fontWeight:700,marginBottom:8}}>No certs tracked yet</div><div style={{maxWidth:400,margin:"0 auto",lineHeight:1.6}}>Go to Browse, click any cert tile, then + Add. Or toggle certs in Pathways. Persists across sessions.</div></div>
+        {my.size === 0 ? (<div style={ss.empty}><div style={{ fontSize: 16, fontWeight: 700, marginBottom: 8 }}>No certs tracked yet</div><div style={{ maxWidth: 400, margin: "0 auto", lineHeight: 1.6 }}>Click any cert in Browse or toggle them in Pathways. Persists across sessions.</div></div>
         ) : (<div>
-          <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:12}}>
-            {DO.map(dk => { const cnt = myList.filter(c=>c.d===dk).length; if(!cnt)return null; return <div key={dk} style={{background:"#1e293b",borderRadius:6,padding:"6px 10px",borderLeft:"3px solid "+DC[dk]}}><div style={{fontSize:9,color:DC[dk],fontWeight:700}}>{DN[dk]}</div><div style={{fontSize:22,fontWeight:800,color:"#fff"}}>{cnt}</div></div>; })}
-            <div style={{background:"#1e293b",borderRadius:6,padding:"6px 10px",borderLeft:"3px solid #fbbf24"}}><div style={{fontSize:9,color:"#fbbf24",fontWeight:700}}>TOTAL</div><div style={{fontSize:18,fontWeight:800,color:"#fff"}}>{my.size}</div></div>
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 12 }}>
+            {DO.map(dk => { const cnt = myList.filter(c => c.d === dk || (c.xd && c.xd.includes(dk))).length; if (!cnt) return null; return <div key={dk} style={{ background: "#1e293b", borderRadius: 6, padding: "6px 10px", borderLeft: "3px solid " + DC[dk] }}><div style={{ fontSize: 9, color: DC[dk], fontWeight: 700 }}>{DN[dk]}</div><div style={{ fontSize: 22, fontWeight: 800, color: "#fff" }}>{cnt}</div></div>; })}
+            <div style={{ background: "#1e293b", borderRadius: 6, padding: "6px 10px", borderLeft: "3px solid #fbbf24" }}><div style={{ fontSize: 9, color: "#fbbf24", fontWeight: 700 }}>TOTAL</div><div style={{ fontSize: 22, fontWeight: 800, color: "#fff" }}>{my.size}</div></div>
           </div>
-          <div style={{display:"flex",flexWrap:"wrap",gap:5}}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
             {myList.map(c => { const sal = salRange(c.a); return (
-              <div key={c.a} onClick={()=>setSel(c.a)} style={{background:"#1e293b",borderRadius:5,padding:"6px 8px",border:"1px solid "+WC[c.w]+"33",minWidth:120,cursor:"pointer",display:"flex",flexDirection:"column",gap:1}}>
-                <div style={{display:"flex",justifyContent:"space-between"}}><span style={{fontSize:13,fontWeight:800,color:WC[c.w]}}>{c.a}</span><span style={{fontSize:7,color:TC[c.t],fontWeight:700}}>{TN[c.t]}</span></div>
-                <span style={{fontSize:10,color:"#cbd5e1"}}>{c.n.slice(0,50)}</span>
-                {sal && <span style={{fontSize:11,color:"#22c55e",fontWeight:600}}>${sal[0]}K&ndash;${sal[1]}K</span>}
+              <div key={c.a} onClick={() => setSel(c.a)} style={{ background: "#1e293b", borderRadius: 5, padding: "6px 10px", border: "1px solid " + DC[c.d] + "33", minWidth: 130, cursor: "pointer", display: "flex", flexDirection: "column", gap: 2 }}>
+                <div style={{ display: "flex", justifyContent: "space-between" }}><span style={{ fontSize: 13, fontWeight: 800, color: DC[c.d] }}>{c.a}</span><span style={{ fontSize: 9, color: TC[c.t], fontWeight: 700 }}>{TN[c.t]}</span></div>
+                <span style={{ fontSize: 10, color: "#cbd5e1" }}>{c.n.slice(0, 45)}</span>
+                {sal && <span style={{ fontSize: 11, color: "#22c55e", fontWeight: 600 }}>${sal[0]}K&ndash;${sal[1]}K</span>}
               </div>); })}
           </div>
-          <div style={{marginTop:14,borderTop:"1px solid #1e293b",paddingTop:10}}>
-            <div style={{fontSize:10,fontWeight:700,color:"#94a3b8",marginBottom:6}}>PATHWAY COMPLETION</div>
-            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(180px,1fr))",gap:6}}>
-              {Object.entries(PW).map(([pk,pv])=>{ const ow=pv.c.filter(a=>my.has(a)).length; const pct=Math.round(ow/pv.c.length*100); return (
-                <div key={pk} style={{background:"#0f172a",borderRadius:5,padding:6}}>
-                  <div style={{display:"flex",justifyContent:"space-between",fontSize:11}}><span style={{color:"#f1f5f9",fontWeight:600}}>{pv.l}</span><span style={{color:pctColor(pct),fontWeight:700}}>{pct}%</span></div>
-                  <div style={{height:3,background:"#1e293b",borderRadius:2,marginTop:3,overflow:"hidden"}}><div style={{height:"100%",width:pct+"%",background:pctColor(pct),borderRadius:2}}/></div>
+          <div style={{ marginTop: 14, borderTop: "1px solid #1e293b", paddingTop: 10 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", marginBottom: 6 }}>PATHWAY COMPLETION</div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(180px,1fr))", gap: 6 }}>
+              {Object.entries(PW).map(([pk, pv]) => { const ow = pv.c.filter(a => my.has(a)).length; const pct = Math.round(ow / pv.c.length * 100); return (
+                <div key={pk} style={{ background: "#0f172a", borderRadius: 5, padding: 6 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11 }}><span style={{ color: "#f1f5f9", fontWeight: 600 }}>{pv.l}</span><span style={{ color: pctColor(pct), fontWeight: 700 }}>{pct}%</span></div>
+                  <div style={{ height: 4, background: "#1e293b", borderRadius: 2, marginTop: 3, overflow: "hidden" }}><div style={{ height: "100%", width: pct + "%", background: pctColor(pct), borderRadius: 2 }} /></div>
                 </div>); })}
             </div>
           </div>
@@ -741,109 +784,110 @@ export default function App() {
       </div>)}
 
       {/* ===== PATHWAYS ===== */}
-      {tab === "pathways" && (<div style={{display:"flex",flexDirection:"column",gap:8}}>
-        {Object.entries(PW).map(([pk,pv])=>{ const ow=pv.c.filter(a=>my.has(a)); const pct=Math.round(ow.length/pv.c.length*100); return (
-          <div key={pk} style={{background:"#1e293b",borderRadius:8,padding:12,border:"1px solid #334155"}}>
-            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-              <div><span style={{fontSize:16,fontWeight:800,color:"#f8fafc"}}>{pv.l}</span>{pv.i && <span style={{fontSize:9,color:"#64748b",marginLeft:8}}>{pv.i}</span>}</div>
-              <span style={{fontSize:13,fontWeight:800,color:pctColor(pct)}}>{pct}% ({ow.length}/{pv.c.length})</span>
+      {tab === "pathways" && (<div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        {Object.entries(PW).map(([pk, pv]) => { const ow = pv.c.filter(a => my.has(a)); const pct = Math.round(ow.length / pv.c.length * 100); return (
+          <div key={pk} style={{ background: "#1e293b", borderRadius: 8, padding: 14, border: "1px solid #3b4a5f" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div><span style={{ fontSize: 16, fontWeight: 800, color: "#f8fafc" }}>{pv.l}</span>{pv.i && <span style={{ fontSize: 10, color: "#94a3b8", marginLeft: 8 }}>{pv.i}</span>}</div>
+              <span style={{ fontSize: 13, fontWeight: 800, color: pctColor(pct) }}>{pct}% ({ow.length}/{pv.c.length})</span>
             </div>
-            <div style={{height:4,background:"#0f172a",borderRadius:3,margin:"6px 0",overflow:"hidden"}}><div style={{height:"100%",width:pct+"%",background:pctColor(pct),borderRadius:3}}/></div>
-            <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6}}>
-              {Object.entries(pv.t).sort((a,b)=>Number(a[0])-Number(b[0])).map(([t,r])=>(<span key={t} style={{fontSize:11}}><span style={{color:TC[t],fontWeight:700}}>{TN[t]}</span> <span style={{color:"#64748b"}}>${r[0]}K&ndash;${r[1]}K</span></span>))}
+            <div style={{ height: 4, background: "#0f172a", borderRadius: 3, margin: "6px 0", overflow: "hidden" }}><div style={{ height: "100%", width: pct + "%", background: pctColor(pct), borderRadius: 3 }} /></div>
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 6 }}>
+              {Object.entries(pv.t).sort((a, b) => Number(a[0]) - Number(b[0])).map(([t, r]) => (<span key={t} style={{ fontSize: 11 }}><span style={{ color: TC[t], fontWeight: 700 }}>{TN[t]}</span> <span style={{ color: "#94a3b8" }}>${r[0]}K&ndash;${r[1]}K</span></span>))}
             </div>
-            {[1,2,3,4,5].map(t=>{ const tc=pv.c.filter(a=>{const c=ALL.find(x=>x.a===a);return c&&c.t===t;}); if(!tc.length)return null; return (
-              <div key={t} style={{marginTop:2}}><span style={{fontSize:10,color:TC[t],fontWeight:700}}>{TN[t]}: </span>
-                {tc.map(a=>{ const have=my.has(a); return <span key={a} onClick={()=>tog(a)} style={{fontSize:10,padding:"3px 8px",borderRadius:3,marginRight:2,marginBottom:1,display:"inline-block",cursor:"pointer",background:have?"rgba(251,191,36,0.13)":"#0f172a",color:have?"#fbbf24":"#64748b",border:have?"1px solid #fbbf24":"1px solid #1e293b",fontWeight:have?700:400}}>{have?"\u2713 ":""}{a}</span>; })}
+            {[1, 2, 3, 4, 5].map(t => { const tc = pv.c.filter(a => { const c = ALL.find(x => x.a === a); return c && c.t === t; }); if (!tc.length) return null; return (
+              <div key={t} style={{ marginTop: 2 }}><span style={{ fontSize: 10, color: TC[t], fontWeight: 700 }}>{TN[t]}: </span>
+                {tc.map(a => { const have = my.has(a); return <span key={a} onClick={() => tog(a)} style={{ fontSize: 10, padding: "3px 8px", borderRadius: 3, marginRight: 3, marginBottom: 2, display: "inline-block", cursor: "pointer", background: have ? "rgba(251,191,36,0.13)" : "#0f172a", color: have ? "#fbbf24" : "#94a3b8", border: have ? "1px solid #fbbf24" : "1px solid #1e293b", fontWeight: have ? 700 : 400 }}>{have ? "\u2713 " : ""}{a}</span>; })}
               </div>); })}
           </div>); })}
       </div>)}
 
       {/* ===== SALARY ===== */}
-      {tab === "salary" && (<div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+      {tab === "salary" && (<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
         <div>
-          <div style={ss.card}><label style={ss.label}>Career Pathway</label><Dd v={sPw} onChange={setSPw} opts={Object.entries(PW).map(([k,v])=>[k,v.l])}/></div>
+          <div style={ss.card}><label style={ss.label}>Career Pathway</label><Dd v={sPw} onChange={setSPw} opts={Object.entries(PW).map(([k, v]) => [k, v.l])} /></div>
           <div style={ss.card}><label style={ss.label}>Certification Tier</label>
-            <div style={{display:"flex",gap:3}}>{[1,2,3,4,5].map(t=>(<button key={t} onClick={()=>setSTier(t)} style={{flex:1,padding:"5px 2px",borderRadius:4,cursor:"pointer",fontSize:9,fontWeight:700,lineHeight:1.3,border:sTier===t?"2px solid "+TC[t]:"2px solid #334155",background:sTier===t?TC[t]+"15":"#0f172a",color:sTier===t?TC[t]:"#475569"}}>{TN[t]}<br/><span style={{fontWeight:400,fontSize:8}}>{TY[t]}</span></button>))}</div>
+            <div style={{ display: "flex", gap: 3 }}>{[1, 2, 3, 4, 5].map(t => (<button key={t} onClick={() => setSTier(t)} style={{ flex: 1, padding: "6px 2px", borderRadius: 4, cursor: "pointer", fontSize: 9, fontWeight: 700, lineHeight: 1.3, border: sTier === t ? "2px solid " + TC[t] : "2px solid #334155", background: sTier === t ? TC[t] + "15" : "#0f172a", color: sTier === t ? TC[t] : "#94a3b8" }}>{TN[t]}<br /><span style={{ fontWeight: 400, fontSize: 8 }}>{TY[t]}</span></button>))}</div>
           </div>
-          <div style={ss.card}><label style={ss.label}>DoD Security Clearance</label><Dd v={sCl} onChange={setSCl} opts={CL.map(c=>[c.id,c.l+" ("+(c.m>1?"+":"")+Math.round((c.m-1)*100)+"%)"])}/></div>
-          <div style={ss.card}><label style={ss.label}>Education</label><Dd v={sDg} onChange={setSDg} opts={DG.map(d=>[d.id,d.l+" ("+(d.m>=1?"+":"")+Math.round((d.m-1)*100)+"%)"])}/></div>
-          <div style={ss.card}><label style={ss.label}>Years of Experience</label><Dd v={sEx} onChange={setSEx} opts={EX.map(e=>[e.id,e.l+" ("+(e.m>=1?"+":"")+Math.round((e.m-1)*100)+"%)"])}/></div>
+          <div style={ss.card}><label style={ss.label}>DoD Security Clearance</label><Dd v={sCl} onChange={setSCl} opts={CL.map(c => [c.id, c.l + " (" + (c.m > 1 ? "+" : "") + Math.round((c.m - 1) * 100) + "%)"])} /></div>
+          <div style={ss.card}><label style={ss.label}>Education</label><Dd v={sDg} onChange={setSDg} opts={DG.map(d => [d.id, d.l + " (" + (d.m >= 1 ? "+" : "") + Math.round((d.m - 1) * 100) + "%)"])} /></div>
+          <div style={ss.card}><label style={ss.label}>Years of Experience</label><Dd v={sEx} onChange={setSEx} opts={EX.map(e => [e.id, e.l + " (" + (e.m >= 1 ? "+" : "") + Math.round((e.m - 1) * 100) + "%)"])} /></div>
         </div>
         <div>
-          <div style={{...ss.card,textAlign:"center",padding:20}}>
-            <div style={{fontSize:8,color:"#64748b",fontWeight:700,letterSpacing:1,textTransform:"uppercase"}}>Estimated Annual Salary</div>
-            <div style={{fontSize:44,fontWeight:900,color:"#22c55e",lineHeight:1.1,marginTop:4}}>${calc.mid.toLocaleString()}K</div>
-            <div style={{fontSize:14,color:"#cbd5e1",marginTop:2}}>${calc.lo}K &mdash; ${calc.hi}K</div>
-            <div style={{fontSize:9,color:"#475569",marginTop:4}}>{PW[sPw].l} &middot; {TN[sTier]}</div>
-            {calc.capped && <div style={{fontSize:7,color:"#f59e0b",marginTop:4,padding:"2px 6px",background:"#f59e0b11",borderRadius:3}}>Capped at {MOD_CAP}x (raw: {calc.rawMult.toFixed(2)}x)</div>}
-            <div style={{borderTop:"1px solid #334155",marginTop:12,paddingTop:10,textAlign:"left"}}>
-              <div style={{fontSize:8,fontWeight:700,color:"#64748b",marginBottom:4}}>BREAKDOWN</div>
-              {[{label:"Base ("+PW[sPw].l+", "+TN[sTier]+")",m:1,val:"$"+calc.bm+"K",color:"#e2e8f0"},
-                {label:"Clearance: "+calc.cl.l,m:calc.cl.m,val:(calc.cl.m>=1?"+":"")+Math.round(calc.bm*(calc.cl.m-1))+"K",color:calc.cl.c},
-                {label:"Education: "+calc.dg.l,m:calc.dg.m,val:(calc.dg.m>=1?"+":"")+Math.round(calc.bm*(calc.dg.m-1))+"K",color:calc.dg.m>=1?"#22c55e":"#f87171"},
-                {label:"Experience: "+calc.ex.l,m:calc.ex.m,val:(calc.ex.m>=1?"+":"")+Math.round(calc.bm*(calc.ex.m-1))+"K",color:calc.ex.m>=1?"#22c55e":"#f87171"},
-              ].map((row,i)=>(<div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"4px 0",borderBottom:"1px solid #0f172a"}}>
-                <span style={{fontSize:11,color:"#f1f5f9",flex:1}}>{row.label}</span>
-                <span style={{fontSize:11,fontWeight:700,color:row.color,width:50,textAlign:"right"}}>{row.val}</span>
-                <span style={{fontSize:10,color:"#94a3b8",width:40,textAlign:"right"}}>&times;{row.m.toFixed(2)}</span>
+          <div style={{ ...ss.card, textAlign: "center", padding: 24 }}>
+            <div style={{ fontSize: 10, color: "#94a3b8", fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>Estimated Annual Salary</div>
+            <div style={{ fontSize: 44, fontWeight: 900, color: "#22c55e", lineHeight: 1.1, marginTop: 4 }}>${calc.mid.toLocaleString()}K</div>
+            <div style={{ fontSize: 14, color: "#cbd5e1", marginTop: 2 }}>${calc.lo}K &mdash; ${calc.hi}K</div>
+            <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 4 }}>{PW[sPw].l} &middot; {TN[sTier]}</div>
+            {calc.capped && <div style={{ fontSize: 9, color: "#f59e0b", marginTop: 4, padding: "2px 6px", background: "#f59e0b11", borderRadius: 3 }}>Capped at {MOD_CAP}x (raw: {calc.rawMult.toFixed(2)}x)</div>}
+            <div style={{ borderTop: "1px solid #334155", marginTop: 14, paddingTop: 10, textAlign: "left" }}>
+              <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", marginBottom: 4 }}>BREAKDOWN</div>
+              {[{label:"Base (" + PW[sPw].l + ", " + TN[sTier] + ")",m:1,val:"$" + calc.bm + "K",color:"#f1f5f9"},
+                {label:"Clearance: " + calc.cl.l,m:calc.cl.m,val:(calc.cl.m>=1?"+":"") + Math.round(calc.bm*(calc.cl.m-1)) + "K",color:calc.cl.c},
+                {label:"Education: " + calc.dg.l,m:calc.dg.m,val:(calc.dg.m>=1?"+":"") + Math.round(calc.bm*(calc.dg.m-1)) + "K",color:calc.dg.m>=1?"#22c55e":"#f87171"},
+                {label:"Experience: " + calc.ex.l,m:calc.ex.m,val:(calc.ex.m>=1?"+":"") + Math.round(calc.bm*(calc.ex.m-1)) + "K",color:calc.ex.m>=1?"#22c55e":"#f87171"},
+              ].map((row,i) => (<div key={i} style={{ display:"flex",justifyContent:"space-between",alignItems:"center",padding:"5px 0",borderBottom:"1px solid #0f172a" }}>
+                <span style={{ fontSize:11,color:"#f1f5f9",flex:1 }}>{row.label}</span>
+                <span style={{ fontSize:11,fontWeight:700,color:row.color,width:50,textAlign:"right" }}>{row.val}</span>
+                <span style={{ fontSize:10,color:"#94a3b8",width:40,textAlign:"right" }}>&times;{row.m.toFixed(2)}</span>
               </div>))}
             </div>
           </div>
           <div style={ss.card}>
-            <div style={{fontSize:8,fontWeight:700,color:"#64748b",marginBottom:4}}>CLEARANCE COMPARISON</div>
-            {CL.map(cl=>{const mid=Math.round(calc.bm*Math.min(cl.m*calc.dg.m*calc.ex.m,MOD_CAP));const maxM=Math.round(calc.bm*Math.min(1.47*calc.dg.m*calc.ex.m,MOD_CAP));const cur=cl.id===sCl;return(
-              <div key={cl.id} style={{display:"flex",alignItems:"center",gap:3,marginBottom:2}}>
-                <span style={{fontSize:9,color:cur?cl.c:"#94a3b8",fontWeight:cur?700:400,width:88,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{cl.l}</span>
-                <div style={{flex:1,height:8,background:"#0f172a",borderRadius:3,overflow:"hidden"}}><div style={{width:(mid/maxM*100)+"%",height:"100%",background:cur?cl.c:cl.c+"33",borderRadius:3}}/></div>
-                <span style={{fontSize:10,color:cur?"#fff":"#94a3b8",fontWeight:cur?700:400,width:38,textAlign:"right"}}>${mid}K</span>
-              </div>);})}
+            <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", marginBottom: 4 }}>CLEARANCE COMPARISON</div>
+            {CL.map(cl => { const mid = Math.round(calc.bm * Math.min(cl.m * calc.dg.m * calc.ex.m, MOD_CAP)); const maxM = Math.round(calc.bm * Math.min(1.47 * calc.dg.m * calc.ex.m, MOD_CAP)); const cur = cl.id === sCl; return (
+              <div key={cl.id} style={{ display: "flex", alignItems: "center", gap: 4, marginBottom: 3 }}>
+                <span style={{ fontSize: 9, color: cur ? cl.c : "#94a3b8", fontWeight: cur ? 700 : 400, width: 95, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{cl.l}</span>
+                <div style={{ flex: 1, height: 10, background: "#0f172a", borderRadius: 3, overflow: "hidden" }}><div style={{ width: (mid / maxM * 100) + "%", height: "100%", background: cur ? cl.c : cl.c + "33", borderRadius: 3 }} /></div>
+                <span style={{ fontSize: 10, color: cur ? "#fff" : "#94a3b8", fontWeight: cur ? 700 : 400, width: 42, textAlign: "right" }}>${mid}K</span>
+              </div>); })}
           </div>
         </div>
       </div>)}
 
       {/* ===== SOURCES ===== */}
       {tab === "sources" && (<div>
-        <div style={{...ss.card,marginBottom:12}}>
-          <div style={{fontSize:11,fontWeight:700,color:"#f1f5f9",marginBottom:6}}>Methodology</div>
-          <div style={{fontSize:11,color:"#cbd5e1",lineHeight:1.7}}>Base ranges are pathway+tier estimates (not per-cert averages) reflecting US national base salary. Compound modifier capped at {MOD_CAP}x. Known gaps: geographic variation unmodeled (biggest factor), Glassdoor/PayScale skew high (self-selection), degree premium from BLS/NACE not cyber-specific.</div>
+        <div style={{ ...ss.card, marginBottom: 12 }}>
+          <div style={{ fontSize: 13, fontWeight: 700, color: "#f1f5f9", marginBottom: 6 }}>Methodology</div>
+          <div style={{ fontSize: 11, color: "#cbd5e1", lineHeight: 1.7 }}>Base ranges are pathway+tier estimates reflecting US national base salary. Compound modifier capped at {MOD_CAP}x. Known gaps: geographic variation unmodeled, Glassdoor/PayScale skew high, degree premium from BLS not cyber-specific.</div>
         </div>
-        <div style={{fontSize:10,fontWeight:700,color:"#94a3b8",marginBottom:6}}>DATA SOURCES ({SOURCES.length})</div>
-        {SOURCES.map((s,i)=>(<div key={i} style={{...ss.card,padding:10}}>
-          <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
-            <div><div style={{fontSize:12,fontWeight:700,color:"#f1f5f9"}}>{s.n}</div><div style={{fontSize:10,color:"#cbd5e1",marginTop:2}}>{s.d}</div></div>
-            <a href={s.u} target="_blank" rel="noopener noreferrer" style={{fontSize:10,color:"#60a5fa",textDecoration:"none",whiteSpace:"nowrap",marginLeft:8}}>Source &rarr;</a>
+        <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", marginBottom: 6 }}>DATA SOURCES ({SOURCES.length})</div>
+        {SOURCES.map((s, i) => (<div key={i} style={{ ...ss.card, padding: 12 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+            <div><div style={{ fontSize: 12, fontWeight: 700, color: "#f1f5f9" }}>{s.n}</div><div style={{ fontSize: 10, color: "#cbd5e1", marginTop: 2 }}>{s.d}</div></div>
+            <a href={s.u} target="_blank" rel="noopener noreferrer" style={{ fontSize: 10, color: "#60a5fa", textDecoration: "none", whiteSpace: "nowrap", marginLeft: 8 }}>Source &rarr;</a>
           </div>
         </div>))}
-        <div style={{...ss.card,marginTop:6}}>
-          <div style={{fontSize:10,fontWeight:700,color:"#e2e8f0",marginBottom:2}}>Certification Data</div>
-          <div style={{fontSize:8,color:"#94a3b8",lineHeight:1.5}}>474 active + 24 retired + 5 CMMC certs from <a href="https://github.com/PaulJerimy/SecCertRoadmapHTML" target="_blank" rel="noopener noreferrer" style={{color:"#3b82f6"}}>PaulJerimy/SecCertRoadmapHTML</a> v9 (Jul 2024) + changelog + Cyber AB/ISACA CAICO (Apr 2026). Each cert links to its vendor page.</div>
+        <div style={{ ...ss.card, marginTop: 6 }}>
+          <div style={{ fontSize: 12, fontWeight: 700, color: "#f1f5f9", marginBottom: 2 }}>Certification Data</div>
+          <div style={{ fontSize: 10, color: "#cbd5e1", lineHeight: 1.6 }}>514 certs from <a href="https://github.com/PaulJerimy/SecCertRoadmapHTML" target="_blank" rel="noopener noreferrer" style={{ color: "#60a5fa" }}>PaulJerimy/SecCertRoadmapHTML</a> v9 (Jul 2024) + changelog + CMMC (ISACA/CAICO 2026) + 12 AI security certs (2025-2026). 110 certs have cross-domain mappings.</div>
         </div>
       </div>)}
 
       {/* ===== DETAIL PANEL ===== */}
-      {sel && (()=>{ const c=ALL.find(x=>x.a===sel); if(!c)return null; const sal=salRange(c.a); const paths=certPaths(c.a); const owned=my.has(c.a);
+      {sel && (() => { const c = ALL.find(x => x.a === sel); if (!c) return null; const sal = salRange(c.a); const paths = certPaths(c.a); const owned = my.has(c.a); const doms = c.xd || [c.d];
         return (<div style={ss.detail}>
-          <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:8}}>
-            <div style={{flex:1,minWidth:0}}>
-              <div style={{display:"flex",gap:6,alignItems:"center",flexWrap:"wrap"}}>
-                <span style={{background:WC[c.w],color:"#fff",padding:"3px 10px",borderRadius:4,fontWeight:800,fontSize:15}}>{c.a}</span>
-                {c.s==="retired"&&<span style={{fontSize:8,color:"#f87171",background:"#f8717118",padding:"2px 5px",borderRadius:3}}>RETIRED</span>}
-                <span style={{fontSize:8,color:TC[c.t],fontWeight:700}}>{TN[c.t]} &middot; {DN[c.d]}</span>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 8 }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
+                <span style={{ background: DC[c.d], color: "#fff", padding: "4px 12px", borderRadius: 4, fontWeight: 800, fontSize: 15 }}>{c.a}</span>
+                {c.s === "retired" && <span style={{ fontSize: 10, color: "#f87171", background: "#f8717118", padding: "2px 6px", borderRadius: 3 }}>RETIRED</span>}
+                <span style={{ fontSize: 10, color: TC[c.t], fontWeight: 700 }}>{TN[c.t]}</span>
               </div>
-              <div style={{fontSize:15,fontWeight:600,color:"#f8fafc",marginTop:6}}>{c.n}</div>
-              {c.b && <div style={{fontSize:12,color:"#cbd5e1",marginTop:4,lineHeight:1.6}}>{c.b}</div>}
+              <div style={{ fontSize: 15, fontWeight: 600, color: "#f8fafc", marginTop: 6 }}>{c.n}</div>
+              {c.b && <div style={{ fontSize: 12, color: "#cbd5e1", marginTop: 4, lineHeight: 1.6 }}>{c.b}</div>}
             </div>
-            <div style={{display:"flex",gap:4,flexShrink:0}}>
-              <button onClick={()=>tog(c.a)} style={{padding:"5px 10px",borderRadius:5,border:"none",cursor:"pointer",fontSize:10,fontWeight:700,background:owned?"#fbbf24":"#334155",color:owned?"#000":"#94a3b8"}}>{owned?"\u2713 Owned":"+ Add"}</button>
-              {c.u && <a href={c.u} target="_blank" rel="noopener noreferrer" style={{padding:"5px 8px",borderRadius:5,border:"1px solid #334155",fontSize:9,color:"#3b82f6",textDecoration:"none",display:"flex",alignItems:"center"}}>Site &rarr;</a>}
-              <button onClick={()=>setSel(null)} style={{padding:"5px 8px",borderRadius:5,border:"1px solid #475569",background:"none",color:"#64748b",cursor:"pointer",fontSize:10}}>&#10005;</button>
+            <div style={{ display: "flex", gap: 4, flexShrink: 0 }}>
+              <button onClick={() => tog(c.a)} style={{ padding: "6px 14px", borderRadius: 5, border: "none", cursor: "pointer", fontSize: 11, fontWeight: 700, background: owned ? "#fbbf24" : "#334155", color: owned ? "#000" : "#cbd5e1" }}>{owned ? "\u2713 Owned" : "+ Add"}</button>
+              {c.u && <a href={c.u} target="_blank" rel="noopener noreferrer" style={{ padding: "6px 10px", borderRadius: 5, border: "1px solid #334155", fontSize: 10, color: "#60a5fa", textDecoration: "none", display: "flex", alignItems: "center" }}>Official Site &rarr;</a>}
+              <button onClick={() => setSel(null)} style={{ padding: "6px 10px", borderRadius: 5, border: "1px solid #475569", background: "none", color: "#94a3b8", cursor: "pointer", fontSize: 11 }}>&#10005;</button>
             </div>
           </div>
-          <div style={{display:"flex",flexWrap:"wrap",gap:12,marginTop:10}}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginTop: 12 }}>
             {c.p && <div><span style={ss.dl}>Price</span><span style={ss.dv}>{c.p}</span></div>}
-            {sal && <div><span style={ss.dl}>Salary Range</span><span style={{...ss.dv,color:"#22c55e",fontWeight:700}}>${sal[0]}K&ndash;${sal[1]}K</span></div>}
-            {paths.length>0 && <div><span style={ss.dl}>Career Pathways</span><span style={ss.dv}>{paths.join(", ")}</span></div>}
+            <div><span style={ss.dl}>Domains</span><div style={{ display: "flex", gap: 4, marginTop: 2 }}>{doms.map(d => <span key={d} style={{ fontSize: 10, padding: "2px 6px", borderRadius: 3, background: DC[d] + "22", color: DC[d], fontWeight: 600, border: "1px solid " + DC[d] + "44" }}>{DN[d]}</span>)}</div></div>
+            {sal && <div><span style={ss.dl}>Salary Range</span><span style={{ ...ss.dv, color: "#22c55e", fontWeight: 700 }}>${sal[0]}K&ndash;${sal[1]}K</span></div>}
+            {paths.length > 0 && <div><span style={ss.dl}>Career Pathways</span><span style={ss.dv}>{paths.join(", ")}</span></div>}
           </div>
         </div>);
       })()}
@@ -852,19 +896,20 @@ export default function App() {
 }
 
 const ss = {
-  root:{fontFamily:"'Segoe UI',system-ui,sans-serif",background:"#101827",color:"#e2e8f0",minHeight:"100vh",padding:14},
-  h1:{fontSize:22,fontWeight:900,margin:0,color:"#f8fafc",letterSpacing:-0.5},
-  sub:{fontSize:11,color:"#94a3b8"},
-  tab:{padding:"7px 16px",fontSize:11,fontWeight:700,border:"1px solid",cursor:"pointer",borderRadius:5},
-  sel:{padding:"6px 8px",fontSize:11,borderRadius:5,border:"1px solid #1e293b",background:"#0f172a",color:"#e2e8f0",cursor:"pointer"},
-  input:{padding:"6px 10px",fontSize:11,borderRadius:5,border:"1px solid #334155",background:"#0f172a",color:"#f1f5f9",width:150},
-  progBar:{display:"flex",alignItems:"center",background:"#1e293b",borderRadius:5,padding:"5px 10px",marginBottom:6,fontSize:10,border:"1px solid #334155"},
-  leg:{display:"flex",alignItems:"center",gap:4,fontSize:10,color:"#64748b"},
-  dot:{width:11,height:11,borderRadius:2,display:"inline-block"},
-  card:{background:"#1e293b",borderRadius:8,padding:14,border:"1px solid #3b4a5f",marginBottom:8},
-  label:{fontSize:10,color:"#94a3b8",fontWeight:700,marginBottom:3,display:"block",textTransform:"uppercase",letterSpacing:0.5},
-  detail:{position:"fixed",bottom:0,left:0,right:0,background:"#1a2332",borderTop:"3px solid #2563eb",padding:20,zIndex:100,maxHeight:"38vh",overflow:"auto"},
-  dl:{fontSize:10,color:"#94a3b8",display:"block"},
-  dv:{fontSize:13,color:"#f1f5f9",display:"block",marginTop:1},
-  empty:{textAlign:"center",padding:40,color:"#cbd5e1",fontSize:13,lineHeight:1.6},
+  root: { fontFamily: "'Segoe UI',system-ui,sans-serif", background: "#101827", color: "#e2e8f0", minHeight: "100vh", padding: 16 },
+  h1: { fontSize: 22, fontWeight: 900, margin: 0, color: "#f8fafc", letterSpacing: -0.5 },
+  sub: { fontSize: 11, color: "#94a3b8" },
+  tab: { padding: "7px 16px", fontSize: 11, fontWeight: 700, border: "1px solid", cursor: "pointer", borderRadius: 6 },
+  sel: { padding: "6px 8px", fontSize: 11, borderRadius: 5, border: "1px solid #334155", background: "#0f172a", color: "#f1f5f9", cursor: "pointer" },
+  input: { padding: "6px 10px", fontSize: 11, borderRadius: 5, border: "1px solid #334155", background: "#0f172a", color: "#f1f5f9", width: 150 },
+  progBar: { display: "flex", alignItems: "center", background: "#1e293b", borderRadius: 6, padding: "6px 12px", marginBottom: 6, fontSize: 12, border: "1px solid #334155" },
+  tierLbl: { width: 80, minWidth: 80, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", borderRight: "3px solid", paddingRight: 5, marginRight: 0 },
+  leg: { display: "flex", alignItems: "center", gap: 4, fontSize: 10, color: "#94a3b8" },
+  dot: { width: 11, height: 11, borderRadius: 2, display: "inline-block" },
+  card: { background: "#1e293b", borderRadius: 8, padding: 14, border: "1px solid #3b4a5f", marginBottom: 8 },
+  label: { fontSize: 10, color: "#94a3b8", fontWeight: 700, marginBottom: 4, display: "block", textTransform: "uppercase", letterSpacing: 0.5 },
+  detail: { position: "fixed", bottom: 0, left: 0, right: 0, background: "#1a2332", borderTop: "3px solid #2563eb", padding: 20, zIndex: 100, maxHeight: "40vh", overflow: "auto" },
+  dl: { fontSize: 10, color: "#94a3b8", display: "block" },
+  dv: { fontSize: 13, color: "#f1f5f9", display: "block", marginTop: 1 },
+  empty: { textAlign: "center", padding: 40, color: "#cbd5e1", fontSize: 13, lineHeight: 1.6 },
 };

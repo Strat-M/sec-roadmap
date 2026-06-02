@@ -850,8 +850,9 @@ export default function App() {
       return (
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8, padding: "6px 0" }}>
+            <button onClick={() => setFDom("all")} style={{ padding: "4px 10px", borderRadius: 5, border: "1px solid #334155", background: "#1e293b", color: "#94a3b8", cursor: "pointer", fontSize: 11, fontWeight: 600 }}>&larr; All Domains</button>
             <span style={{ fontSize: 18, fontWeight: 900, color: DC[d] }}>{DN[d]}</span>
-            <span style={{ fontSize: 12, color: "#94a3b8" }}>{dom.total} certs across {subKeys.length} specializations</span>
+            <span style={{ fontSize: 12, color: "#94a3b8" }}>{dom.total} certs &middot; {subKeys.length} specializations</span>
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
             {subKeys.map(sk => renderSubBox(d, sk, dom.subs[sk], true))}
@@ -869,15 +870,16 @@ export default function App() {
           if (dom.total === 0) return null;
           const subKeys = Object.keys(dom.subs).sort((a, b) => dom.subs[b].length - dom.subs[a].length);
           return (
-            <div key={d} onClick={() => setFDom(d)} style={{
+            <div key={d} style={{
               flex: Math.max(dom.total, 5) + " 1 0%",
-              minWidth: 120, background: "#0f172a", cursor: "pointer",
+              minWidth: 120, background: "#0f172a",
               border: "2px solid " + DC[d], borderRadius: 6, overflow: "hidden",
-              transition: "border-color 0.15s",
             }}>
-              <div style={{ background: DC[d] + "22", padding: "4px 8px", borderBottom: "1px solid " + DC[d] + "44", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontSize: 11, fontWeight: 800, color: DC[d] }}>{DN[d]}</span>
-                <span style={{ fontSize: 9, color: DC[d], opacity: 0.7 }}>{dom.total}</span>
+              <div onClick={() => setFDom(d)} style={{ background: DC[d] + "22", padding: "6px 10px", borderBottom: "1px solid " + DC[d] + "44", display: "flex", justifyContent: "space-between", alignItems: "center", cursor: "pointer", transition: "background 0.15s" }}
+                onMouseEnter={e => e.currentTarget.style.background = DC[d] + "44"}
+                onMouseLeave={e => e.currentTarget.style.background = DC[d] + "22"}>
+                <span style={{ fontSize: 12, fontWeight: 800, color: DC[d] }}>{DN[d]}</span>
+                <span style={{ fontSize: 9, color: DC[d] }}>Drill in &rarr;</span>
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 1, padding: 3 }}>
                 {subKeys.map(sk => renderSubBox(d, sk, dom.subs[sk], false))}

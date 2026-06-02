@@ -592,6 +592,8 @@ const ALL = RAW.trim().split("\n").map(ln => {
 });
 // Attach cross-domain data
 ALL.forEach(c => { if (XD[c.a]) c.xd = XD[c.a]; });
+const SD={"AAIA":"Audit","AAISM":"Audit","ACE":"Forensics","AI-102":"AI/ML","AIGP":"Privacy","APMG 27001A":"Audit","APMG 27001F":"Compliance","APMG 27001P":"Compliance","ASIS APP":"Physical","ASIS CPP":"Physical","AWS AIP":"AI/ML","AWS CP":"Cloud","AWS CSS":"Cloud","AWS SAA":"Cloud","AWS SAP":"Cloud","AZ-104":"Cloud","AZ-220":"Cloud","AZ-305":"Cloud","AZ-500":"Cloud","AZ-900":"Cloud","Apple ACSP":"*nix","BCS FISMP":"GRC","BCS PCIAA":"GRC","BCS PCIRM":"GRC","BSCP":"AppSec","BTL1":"Detection/SOC","BTL2":"Detection/SOC","C)ISSM":"GRC","C)ISSO":"GRC","C)PEH":"Pen Testing","C)PTE":"Pen Testing","C)SWAE":"AppSec","C)VA":"Pen Testing","CAISP":"AI/ML","CAMS":"Access Mgmt","CAPM":"Project Mgmt","CASE":"AppSec","CASP+":"Foundations","CASST":"AppSec","CC":"Foundations","CCD":"Detection/SOC","CCE":"Forensics","CCFE":"Forensics","CCIE Ent":"Routing/Switching","CCIE Sec":"Firewall/VPN","CCISO":"GRC","CCNA":"Routing/Switching","CCNP Ent":"Routing/Switching","CCNP Sec":"Firewall/VPN","CCOA":"Frameworks","CCSC":"DevSecOps","CCSE":"Firewall/VPN","CCSP":"Cloud","CCT":"Routing/Switching","CDP":"Data Protection","CDPSE":"Privacy","CFA":"Forensics","CFCE":"Forensics","CFR":"Incident Response","CFSR":"Forensics","CGEIT":"GRC","CGRC":"GRC","CHFI":"Forensics","CIAM":"Identity","CIDPRO":"Identity","CIGE":"Identity","CIISec ICSF":"GRC","CIMP":"Access Mgmt","CIOTSP":"ICS/IoT","CIPA":"Data Protection","CIPP":"Privacy","CIPT":"Privacy","CISA":"Audit","CISM":"GRC","CISP":"GRC","CISRM":"GRC","CISSM":"GRC","CIST":"Identity","CITGP":"GRC","CKA":"Containers","CKAD":"Containers","CKS":"Containers","CLCSM":"Cloud","CM)ISSO":"GRC","CMMC ARP":"Frameworks","CMMC CCA":"Compliance","CMMC CCI":"Frameworks","CMMC CCP":"Compliance","CMMC RP":"Frameworks","CND":"Detection/SOC","CPENT":"Pen Testing","CREST CCSAS":"Red Team","CREST CPSA":"Pen Testing","CREST CRT":"Pen Testing","CREST CSAM":"Red Team","CRFS":"Data Protection","CRISC":"GRC","CRTO":"Red Team","CRTO II":"Red Team","CSA":"Detection/SOC","CSA CCSK":"Cloud","CSA CGC":"Cloud","CSFA":"Forensics","CSSA":"ICS/IoT","CSSLP":"AppSec","CSST":"AppSec","CSTL":"Red Team","CSTM":"Red Team","CSX-F":"Frameworks","CSX-P":"Frameworks","CTIA":"Threat Intel","CTPRA":"GRC","CTPRP":"GRC","CWAP":"Wireless","CWDP":"Wireless","CWNA":"Wireless","CWNE":"Wireless","CWSP":"Wireless","Cloud Essnt":"Cloud","Cloud+":"Cloud","CySA+":"Detection/SOC","DCA":"Containers","DCPP":"Data Protection","DevNet A":"DevSecOps","DevNet Pro":"DevSecOps","ECES":"Exploitation","ECIH":"Incident Response","ECSS":"Detection/SOC","EDRP":"Incident Response","EPDPE":"Privacy","EPDPF":"Privacy","EPDPP":"Privacy","EXIN 27001E":"Compliance","EXIN 27001F":"Compliance","EXIN 27001P":"Compliance","EnCE":"Forensics","F5 CA":"Firewall/VPN","F5 CTS APM":"Firewall/VPN","F5 CTS ASM":"Firewall/VPN","FCA":"Firewall/VPN","FCF":"Firewall/VPN","FCP NS":"Firewall/VPN","FCP PCS":"ICS/IoT","FCSS NS":"Firewall/VPN","FCSS OT":"ICS/IoT","FCSS PCS":"ICS/IoT","FCSS SASE":"Zero Trust","FCSS ZTA":"Zero Trust","Fair Fdn":"Risk","GAIPS":"AI/ML","GASAE":"AI/ML","GASF":"Forensics","GBFA":"Forensics","GCCC":"Compliance","GCDA":"Detection/SOC","GCED":"Detection/SOC","GCFA":"Forensics","GCFE":"Forensics","GCFR":"Forensics","GCIA":"Detection/SOC","GCIH":"Incident Response","GCIP":"ICS/IoT","GCLD":"Cloud","GCPEH":"Pen Testing","GCPN":"Pen Testing","GCPT":"Red Team","GCSA":"Cloud","GCTI":"Threat Intel","GCWN":"Windows","GDAT":"ICS/IoT","GEIR":"Incident Response","GFACT":"Foundations","GICSP":"ICS/IoT","GIME":"Incident Response","GISP":"GRC","GLEG":"GRC","GMLE":"AI/ML","GMOB":"Mobile","GMON":"Detection/SOC","GNFA":"Network Analysis","GOAA":"AI/ML","GOSI":"Threat Intel","GPCS":"Cloud","GPEN":"Pen Testing","GREM":"Malware/RE","GRID":"ICS/IoT","GRTP":"Exploitation","GSEC":"Foundations","GSLC":"GRC","GSNA":"Audit","GSOC":"Detection/SOC","GSTRT":"GRC","GWAPT":"Web App","GWEB":"AppSec","GX-FA":"Forensics","GX-PT":"Exploitation","GXPN":"Exploitation","Google ACE":"Cloud","Google MLE":"AI/ML","Google PCSA":"Cloud","Google PCSE":"Cloud","HTB CBBH":"Web App","HTB CDSA":"Detection/SOC","HTB CPTS":"Pen Testing","HTB CWEE":"Web App","IIA CIA":"Audit","ISA CAP":"ICS/IoT","ISA CDS":"ICS/IoT","ISA CE":"ICS/IoT","ISA CFS":"ICS/IoT","ISA CRAS":"ICS/IoT","ISMI CSM":"GRC","ISMI CSMP":"GRC","ISO 27001 LA":"Audit","ITIL Fdn":"Frameworks","ITIL MP":"Frameworks","ITIL Master":"Frameworks","ITIL SL":"Frameworks","JNCIA Sec":"Routing/Switching","JNCIE Sec":"Routing/Switching","JNCIP Sec":"Routing/Switching","JNCIS Sec":"Routing/Switching","KCNA":"Containers","KLCP":"Pen Testing","LFCA":"*nix","LFCS":"*nix","LPIC-1":"*nix","LPIC-2":"*nix","LPIC-3":"*nix","LPT":"Pen Testing","Linux+":"*nix","MAD CTI":"Threat Intel","MAD SOCA":"Detection/SOC","MASE":"AppSec","MCD":"Red Team","MCPT":"Pen Testing","MCSE":"Windows","MCSF":"Windows","MDFIR":"Forensics","MPT":"Pen Testing","MRCI":"Incident Response","MRE":"Exploitation","MRT":"Red Team","MS-100":"Windows","MVRE":"Exploitation","M_o_R Fdn":"Risk","M_o_R P":"Risk","NCSC CCPLP":"GRC","NCSC CCPP":"GRC","NCSC CCPSP":"GRC","OPST":"Pen Testing","OSCE3":"Exploitation","OSCP":"Pen Testing","OSDA":"Detection/SOC","OSED":"Exploitation","OSEE":"Exploitation","OSEP":"Exploitation","OSMR":"Mobile","OSWA":"Web App","OSWE":"Web App","OSWP":"Wireless","PACES":"Exploitation","PCCET":"Firewall/VPN","PCI QSA":"Audit","PCNSA":"Firewall/VPN","PCNSE":"Firewall/VPN","PCSAE":"Firewall/VPN","PDSO CDE":"DevSecOps","PDSO CDP":"DevSecOps","PECB 27001F":"Compliance","PECB 27001LA":"Audit","PECB 27001LI":"Compliance","PJMR":"Pen Testing","PMI ACP":"Project Mgmt","PMP":"Project Mgmt","PNPT":"Pen Testing","PSM I":"Project Mgmt","PSM II":"Project Mgmt","PSM III":"Project Mgmt","Pentest+":"Pen Testing","PgMP":"Project Mgmt","Project+":"Project Mgmt","RHCA":"*nix","RHCE":"*nix","RHCSA":"*nix","S-CEHL":"Red Team","S-CISO":"GRC","S-CSPL":"AppSec","S-EHE":"Red Team","S-EHF":"Red Team","S-EHP":"Red Team","S-ISF":"GRC","S-ISME":"GRC","S-ISP":"GRC","S-SPF":"AppSec","SABSA SCF":"Architecture","SABSA SCM":"Architecture","SABSA SCP":"Architecture","SC-100":"Cloud","SC-200":"Detection/SOC","SC-300":"Identity","SC-400":"Detection/SOC","SC-900":"Identity","SF CIAMD":"Identity","SOG CAP":"AppSec","SOG CAPen":"Pen Testing","SOG CAPenX":"Pen Testing","SOG CCSP-AWS":"Cloud","SOG CMPen And":"Mobile","SOG CMPen iOS":"Mobile","SOG CNPen":"Web App","SSCP":"Foundations","Scrum PAL":"Project Mgmt","Scrum PSD":"Project Mgmt","Scrum SPS":"Project Mgmt","SecAI+":"AI/ML","Security+":"Foundations","Server+":"Windows","TAISE":"AI/ML","TOGAF":"Architecture","TOGAF Fdn":"Architecture","TUV Auditor":"Audit","TUV COSM":"ICS/IoT","TUV COSP":"ICS/IoT","TUV COSTE":"ICS/IoT","TUV COTCP":"ICS/IoT","TUV CySec":"Audit","TUV MSA":"Audit","VCDX DCV":"Virtualization","VCIX DCV":"Virtualization","VCIX NV":"Virtualization","VCP DCV":"Virtualization","VCP NV":"Virtualization","WCNA":"Network Analysis","eCDFP":"Forensics","eCIR":"Incident Response","eCMAP":"Malware/RE","eCPPT":"Pen Testing","eCPTX":"Exploitation","eCRE":"Malware/RE","eCTHP":"Threat Intel","eCXD":"Exploitation","eJPT":"Pen Testing","eMAPT":"Mobile","eWPT":"Web App","eWPTX":"Web App"};
+ALL.forEach(c => { c.sd = SD[c.a] || null; });
 
 export default function App() {
   const [tab, setTab] = useState("browse");
@@ -607,6 +609,7 @@ export default function App() {
   const [sCl, setSCl] = useState("none");
   const [sDg, setSDg] = useState("ba");
   const [sEx, setSEx] = useState("3");
+  const [viewMode, setViewMode] = useState("heat");
 
   useEffect(() => { (async () => { try { const r = await window.storage.get("my_certs_v6"); if (r && r.value) setMy(new Set(JSON.parse(r.value))); } catch(e){} setLoaded(true); })(); }, []);
   useEffect(() => { if (!loaded) return; (async () => { try { await window.storage.set("my_certs_v6", JSON.stringify([...my])); } catch(e){} })(); }, [my, loaded]);
@@ -664,27 +667,74 @@ export default function App() {
   // Visible domains
   const visDom = fDom === "all" ? DO : [fDom];
 
-  // Simple grid: each cert in primary domain cell, cross-domain shown via dots
+  // Get sub-domains for a given domain from certs in that cell
+  const getSubDomains = useCallback((domainCerts) => {
+    const subs = {};
+    const ungrouped = [];
+    domainCerts.forEach(c => {
+      if (c.sd) {
+        if (!subs[c.sd]) subs[c.sd] = [];
+        subs[c.sd].push(c);
+      } else {
+        ungrouped.push(c);
+      }
+    });
+    return { subs, ungrouped, keys: Object.keys(subs).sort() };
+  }, []);
+
+  // Grid view - with sub-column expansion for single domain
   const renderTierGrid = (tier) => {
     const tierCerts = filtered.filter(c => c.t === tier);
     if (!tierCerts.length) return null;
 
-    // Group certs into domain cells - primary domain placement
-    // Cross-domain certs also appear in secondary domains when that domain is filtered
     const cells = {};
     visDom.forEach(d => { cells[d] = []; });
-
     tierCerts.forEach(c => {
       const doms = c.xd || [c.d];
-      // Place in primary if visible, else first visible secondary
-      if (visDom.includes(c.d)) {
-        cells[c.d].push(c);
-      } else {
-        const alt = visDom.find(d => doms.includes(d));
-        if (alt) cells[alt].push(c);
-      }
+      if (visDom.includes(c.d)) { cells[c.d].push(c); }
+      else { const alt = visDom.find(d => doms.includes(d)); if (alt) cells[alt].push(c); }
     });
 
+    // Single domain mode: expand into sub-domain columns
+    if (visDom.length === 1) {
+      const d = visDom[0];
+      const { subs, ungrouped, keys } = getSubDomains(cells[d]);
+      const allKeys = ungrouped.length > 0 ? [...keys, "_other"] : keys;
+      if (allKeys.length <= 1) {
+        // Only one sub-domain, render flat
+        return (
+          <div key={tier} style={{ display: "flex", marginBottom: 1 }}>
+            <div style={{ ...ss.tierLbl, borderRightColor: TC[tier] }}>
+              <span style={{ color: TC[tier], fontWeight: 800, fontSize: 13 }}>{TN[tier]}</span>
+              <span style={{ color: "#94a3b8", fontSize: 9 }}>{TY[tier]}</span>
+            </div>
+            <div style={{ flex: 1, padding: 4, borderBottom: "1px solid #1e293b", display: "flex", flexWrap: "wrap", gap: 3, alignContent: "flex-start" }}>
+              {cells[d].map(c => <Tile key={c.a} c={c} />)}
+            </div>
+          </div>
+        );
+      }
+      return (
+        <div key={tier} style={{ display: "flex", marginBottom: 1 }}>
+          <div style={{ ...ss.tierLbl, borderRightColor: TC[tier] }}>
+            <span style={{ color: TC[tier], fontWeight: 800, fontSize: 13 }}>{TN[tier]}</span>
+            <span style={{ color: "#94a3b8", fontSize: 9 }}>{TY[tier]}</span>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: allKeys.map(() => "1fr").join(" "), gap: 0, flex: 1 }}>
+            {allKeys.map(sk => {
+              const subCerts = sk === "_other" ? ungrouped : (subs[sk] || []);
+              return (
+                <div key={sk} style={{ padding: 4, borderBottom: "1px solid #1e293b", borderRight: "1px solid #1e293b22", minHeight: 30, display: "flex", flexWrap: "wrap", gap: 3, alignContent: "flex-start" }}>
+                  {subCerts.map(c => <Tile key={c.a} c={c} />)}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      );
+    }
+
+    // Multi-domain mode: sub-domain labels within cells
     return (
       <div key={tier} style={{ display: "flex", marginBottom: 1 }}>
         <div style={{ ...ss.tierLbl, borderRightColor: TC[tier] }}>
@@ -692,12 +742,149 @@ export default function App() {
           <span style={{ color: "#94a3b8", fontSize: 9 }}>{TY[tier]}</span>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: visDom.map(() => "1fr").join(" "), gap: 0, flex: 1 }}>
-          {visDom.map(d => (
-            <div key={d} style={{ padding: 4, borderBottom: "1px solid #1e293b", borderRight: "1px solid #1e293b", minHeight: 32, display: "flex", flexWrap: "wrap", gap: 3, alignContent: "flex-start" }}>
-              {cells[d].map(c => <Tile key={c.a} c={c} />)}
-            </div>
-          ))}
+          {visDom.map(d => {
+            const { subs, ungrouped, keys } = getSubDomains(cells[d]);
+            const hasGroups = keys.length > 1 || (keys.length === 1 && ungrouped.length > 0);
+            return (
+              <div key={d} style={{ padding: 3, borderBottom: "1px solid #1e293b", borderRight: "1px solid #1e293b", minHeight: 32 }}>
+                {hasGroups ? (
+                  <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                    {keys.map(sd => (
+                      <div key={sd}>
+                        <div style={{ fontSize: 7, color: DC[d], opacity: 0.7, fontWeight: 700, letterSpacing: 0.3, textTransform: "uppercase", marginBottom: 1, paddingLeft: 1 }}>{sd}</div>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 3 }}>{subs[sd].map(c => <Tile key={c.a} c={c} />)}</div>
+                      </div>
+                    ))}
+                    {ungrouped.length > 0 && <div style={{ display: "flex", flexWrap: "wrap", gap: 3 }}>{ungrouped.map(c => <Tile key={c.a} c={c} />)}</div>}
+                  </div>
+                ) : (
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 3, alignContent: "flex-start" }}>{cells[d].map(c => <Tile key={c.a} c={c} />)}</div>
+                )}
+              </div>
+            );
+          })}
         </div>
+      </div>
+    );
+  };
+
+
+  // Heatmap / treemap view
+  const renderHeatmap = () => {
+    const certs = filtered;
+    const singleDomain = visDom.length === 1 ? visDom[0] : null;
+
+    // Group by domain, then sub-domain
+    const tree = {};
+    (singleDomain ? [singleDomain] : DO).forEach(d => { tree[d] = { total: 0, subs: {} }; });
+    certs.forEach(c => {
+      const d = singleDomain || c.d;
+      if (!tree[d]) return;
+      tree[d].total++;
+      const sd = c.sd || "General";
+      if (!tree[d].subs[sd]) tree[d].subs[sd] = [];
+      tree[d].subs[sd].push(c);
+    });
+
+    const renderCertTile = (c, d) => {
+      const owned = my.has(c.a);
+      const isSel = sel === c.a;
+      const paths = Object.values(PW).filter(p => p.c.includes(c.a)).length;
+      const scale = singleDomain ? (paths >= 5 ? 1.5 : paths >= 3 ? 1.25 : 1.1) : (paths >= 5 ? 1.4 : paths >= 3 ? 1.15 : 1);
+      const tierAlpha = [0, 0.35, 0.5, 0.7, 0.85, 1.0][c.t];
+      const tierGlow = c.t >= 4 ? "0 0 8px " + DC[d] + "66" : "none";
+      const fs = singleDomain ? Math.round(11 * scale) : Math.round(9 * scale);
+      const pd = singleDomain ? Math.round(4 * scale) + "px " + Math.round(8 * scale) + "px" : Math.round(3 * scale) + "px " + Math.round(6 * scale) + "px";
+      return (
+        <div key={c.a} onClick={() => setSel(isSel ? null : c.a)} title={c.n + " (" + TF[c.t] + ")"} style={{
+          background: DC[d], opacity: c.inP === false ? 0.05 : tierAlpha,
+          color: "#fff", padding: pd, borderRadius: 4, cursor: "pointer",
+          fontSize: fs, fontWeight: 700, lineHeight: 1.2,
+          border: owned ? "2px solid #fbbf24" : isSel ? "2px solid #fff" : "1px solid " + DC[d] + "44",
+          position: "relative", boxShadow: tierGlow, transition: "opacity 0.15s",
+        }}>
+          {c.a}
+          {c.t >= 4 && <span style={{ position: "absolute", top: -1, left: 2, fontSize: 5, color: TC[c.t], fontWeight: 900 }}>{c.t === 5 ? "★" : "◆"}</span>}
+          {owned && <span style={{ position: "absolute", top: -4, right: -4, background: "#fbbf24", color: "#000", borderRadius: 8, width: 12, height: 12, fontSize: 7, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 900 }}>&#10003;</span>}
+        </div>
+      );
+    };
+
+    const renderSubBox = (d, sk, subCerts, expanded) => {
+      const sorted = subCerts.sort((a, b) => b.t - a.t);
+      return (
+        <div key={sk} style={{
+          flex: Math.max(subCerts.length, expanded ? 4 : 2) + " 1 0%",
+          minWidth: expanded ? 140 : 60, background: DC[d] + "08", borderRadius: expanded ? 6 : 3,
+          padding: expanded ? 6 : 2, border: "1px solid " + DC[d] + (expanded ? "33" : "15"),
+        }}>
+          <div style={{
+            fontSize: expanded ? 10 : 6, color: DC[d], opacity: expanded ? 0.9 : 0.6,
+            fontWeight: 700, textTransform: "uppercase", letterSpacing: 0.3,
+            paddingLeft: 2, marginBottom: expanded ? 4 : 1,
+          }}>
+            {sk} <span style={{ opacity: 0.5, fontWeight: 400 }}>({subCerts.length})</span>
+          </div>
+          {expanded && (
+            <div style={{ display: "flex", gap: 2, marginBottom: 4, flexWrap: "wrap" }}>
+              {[5,4,3,2,1].map(t => {
+                const cnt = sorted.filter(c => c.t === t).length;
+                if (!cnt) return null;
+                return <span key={t} style={{ fontSize: 7, color: TC[t], opacity: 0.6 }}>{TF[t]}: {cnt}</span>;
+              })}
+            </div>
+          )}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: expanded ? 3 : 2 }}>
+            {sorted.map(c => renderCertTile(c, d))}
+          </div>
+        </div>
+      );
+    };
+
+    // Single domain: expanded heatmap with large sub-domain boxes
+    if (singleDomain) {
+      const d = singleDomain;
+      const dom = tree[d];
+      if (!dom || dom.total === 0) return <div style={ss.empty}>No certs match filters</div>;
+      const subKeys = Object.keys(dom.subs).sort((a, b) => dom.subs[b].length - dom.subs[a].length);
+      return (
+        <div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8, padding: "6px 0" }}>
+            <span style={{ fontSize: 18, fontWeight: 900, color: DC[d] }}>{DN[d]}</span>
+            <span style={{ fontSize: 12, color: "#94a3b8" }}>{dom.total} certs across {subKeys.length} specializations</span>
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+            {subKeys.map(sk => renderSubBox(d, sk, dom.subs[sk], true))}
+          </div>
+        </div>
+      );
+    }
+
+    // All domains: compact heatmap
+    const totalCerts = certs.length || 1;
+    return (
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 2, minHeight: 400 }}>
+        {DO.map(d => {
+          const dom = tree[d];
+          if (dom.total === 0) return null;
+          const subKeys = Object.keys(dom.subs).sort((a, b) => dom.subs[b].length - dom.subs[a].length);
+          return (
+            <div key={d} onClick={() => setFDom(d)} style={{
+              flex: Math.max(dom.total, 5) + " 1 0%",
+              minWidth: 120, background: "#0f172a", cursor: "pointer",
+              border: "2px solid " + DC[d], borderRadius: 6, overflow: "hidden",
+              transition: "border-color 0.15s",
+            }}>
+              <div style={{ background: DC[d] + "22", padding: "4px 8px", borderBottom: "1px solid " + DC[d] + "44", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: 11, fontWeight: 800, color: DC[d] }}>{DN[d]}</span>
+                <span style={{ fontSize: 9, color: DC[d], opacity: 0.7 }}>{dom.total}</span>
+              </div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 1, padding: 3 }}>
+                {subKeys.map(sk => renderSubBox(d, sk, dom.subs[sk], false))}
+              </div>
+            </div>
+          );
+        })}
       </div>
     );
   };
@@ -725,6 +912,11 @@ export default function App() {
           <Dd v={fDom} onChange={setFDom} opts={[["all", "All Domains"], ...DO.map(d => [d, DN[d]])]} />
           <Dd v={fStat} onChange={setFStat} opts={[["active", "Active"], ["all", "All (+ retired)"], ["retired", "Retired only"]]} />
           <Dd v={fPath} onChange={setFPath} opts={[["none", "No pathway highlight"], ...Object.entries(PW).map(([k, v]) => [k, v.l])]} />
+          <div style={{ display: "flex", borderRadius: 5, overflow: "hidden", border: "1px solid #334155", marginLeft: 4 }}>
+            {[["grid", "Grid"], ["heat", "Heatmap"]].map(([k, l]) => (
+              <button key={k} onClick={() => setViewMode(k)} style={{ padding: "5px 10px", fontSize: 10, fontWeight: 700, border: "none", cursor: "pointer", background: viewMode === k ? "#2563eb" : "#0f172a", color: viewMode === k ? "#fff" : "#94a3b8" }}>{l}</button>
+            ))}
+          </div>
         </div>
         {fPath !== "none" && pprog && (
           <div style={ss.progBar}>
@@ -734,9 +926,9 @@ export default function App() {
           </div>
         )}
         {/* Column headers */}
-        {visDom.length > 1 && (
+        {viewMode === "grid" && visDom.length > 1 && (
           <div style={{ display: "flex" }}>
-            <div style={{ width: 80, minWidth: 80 }} />
+            <div style={{ width: 64, minWidth: 64 }} />
             <div style={{ display: "grid", gridTemplateColumns: visDom.map(() => "1fr").join(" "), gap: 0, flex: 1 }}>
               {visDom.map(d => (
                 <div key={d} style={{ padding: "5px 2px", textAlign: "center", borderBottom: "3px solid " + DC[d], fontSize: 11, fontWeight: 800, color: DC[d] }}>{DN[d]}</div>
@@ -744,14 +936,43 @@ export default function App() {
             </div>
           </div>
         )}
-        {/* Tier rows with spanning */}
-        <div style={{ overflowX: "auto" }}>
-          {[5, 4, 3, 2, 1].map(tier => renderTierGrid(tier))}
-        </div>
+        {viewMode === "grid" && visDom.length === 1 && (() => {
+          const d = visDom[0];
+          const allCerts = filtered.filter(c => c.d === d || (c.xd && c.xd.includes(d)));
+          const { keys } = getSubDomains(allCerts);
+          const allKeys = keys.length > 1 ? keys : [];
+          if (allKeys.length > 0) return (
+            <div style={{ display: "flex" }}>
+              <div style={{ width: 64, minWidth: 64 }}>
+                <div style={{ padding: "5px 2px", textAlign: "center", borderBottom: "3px solid " + DC[d], fontSize: 11, fontWeight: 800, color: DC[d] }}>{DN[d]}</div>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: allKeys.map(() => "1fr").join(" "), gap: 0, flex: 1 }}>
+                {allKeys.map(sk => (
+                  <div key={sk} style={{ padding: "4px 2px", textAlign: "center", borderBottom: "2px solid " + DC[d] + "66", fontSize: 9, fontWeight: 700, color: DC[d], opacity: 0.8 }}>{sk}</div>
+                ))}
+              </div>
+            </div>
+          );
+          return null;
+        })()}
+        {/* Grid or Heatmap view */}
+        {viewMode === "grid" ? (
+          <div style={{ overflowX: "auto" }}>
+            {[5, 4, 3, 2, 1].map(tier => renderTierGrid(tier))}
+          </div>
+        ) : (
+          renderHeatmap()
+        )}
         <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 8, paddingTop: 8, borderTop: "1px solid #1e293b" }}>
           {DO.map(d => <span key={d} style={ss.leg}><span style={{ ...ss.dot, background: DC[d] }} />{DN[d]}</span>)}
           <span style={ss.leg}><span style={{ ...ss.dot, background: "#fbbf24", borderRadius: 8 }} /> Owned</span>
-          <span style={ss.leg}><span style={{ width: 6, height: 6, borderRadius: 6, background: "#70AD47", display: "inline-block", border: "1px solid rgba(0,0,0,0.3)" }} /> Domain dot = also belongs to that domain</span>
+          {viewMode === "grid" && <span style={ss.leg}><span style={{ width: 6, height: 6, borderRadius: 6, background: "#70AD47", display: "inline-block", border: "1px solid rgba(0,0,0,0.3)" }} /> Cross-domain</span>}
+          {viewMode === "heat" && <>
+            <span style={{ fontSize: 10, color: "#64748b", marginLeft: 8 }}>Intensity = tier:</span>
+            {[1,2,3,4,5].map(t => <span key={t} style={{ fontSize: 9, padding: "2px 6px", borderRadius: 3, background: "#3b82f6", opacity: [0,0.35,0.5,0.7,0.85,1.0][t], color: "#fff", fontWeight: 600 }}>{TF[t]}</span>)}
+            <span style={ss.leg}>Size = pathway relevance</span>
+            <span style={ss.leg}><span style={{ fontSize: 8, color: "#a855f7" }}>{"◆"}</span> Expert <span style={{ fontSize: 8, color: "#a855f7" }}>{"★"}</span> Master</span>
+          </>}
         </div>
       </div>)}
 
